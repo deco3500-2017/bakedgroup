@@ -22,7 +22,6 @@ class HeaderComponent extends Component
       <div className="HeaderComponent">
       <AppBar
       title="BakeMate"
-      onLeftIconButtonTouchTap={this.handleToggle()}
       />
       <Menu/>
       </div>
