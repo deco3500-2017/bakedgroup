@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import Feed from './Feed';
+
 
 import './HeaderComponent.css';
 
@@ -35,6 +37,7 @@ class HeaderComponent extends Component
           <MenuItem>Profile</MenuItem>
           <MenuItem>Settings</MenuItem>
         </Drawer>
+      <Feed/>
       </div>
     );
   }
