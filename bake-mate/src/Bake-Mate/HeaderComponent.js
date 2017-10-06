@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
-import Menu from './Menu';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 import './HeaderComponent.css';
 
@@ -9,21 +10,31 @@ class HeaderComponent extends Component
 
   constructor(props) {
    super(props);
-   this.state = {open:false};
+   this.state = {open: false};
  }
 
-  handleToggle(){
-    Menu.setState({open: !this.state.open});
-  }
+ handleToggle = () => this.setState({open: !this.state.open});
 
   render()
   {
-    return (
+    return(
       <div className="HeaderComponent">
       <AppBar
       title="BakeMate"
+      onLeftIconButtonTouchTap={this.handleToggle}
       />
-      <Menu/>
+      <Drawer
+      open={this.state.open}
+      docked={false}
+      onRequestChange={this.handleToggle}
+      >
+          <MenuItem>Home</MenuItem>
+          <MenuItem>Messages</MenuItem>
+          <MenuItem>Create Event</MenuItem>
+          <MenuItem>Buddies</MenuItem>
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Settings</MenuItem>
+        </Drawer>
       </div>
     );
   }
