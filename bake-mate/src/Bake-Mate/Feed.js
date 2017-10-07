@@ -9,14 +9,13 @@ class Feed extends Component{
     return(
       <Card className="Standard-Post">
         <CardHeader
-      title="URL Avatar"
+      title="John Smith"
       subtitle="Subtitle"
       avatar="images/jsa-128.jpg"
     />
     <CardMedia
-      overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
     >
-      <img src="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/pancakes.jpg?alt=media&token=33f89272-83c5-44c4-a5ad-2cabcea56b33" alt="" />
+      <img className="image" src="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/pancakes.jpg?alt=media&token=33f89272-83c5-44c4-a5ad-2cabcea56b33" alt="" />
     </CardMedia>
     <CardText>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
