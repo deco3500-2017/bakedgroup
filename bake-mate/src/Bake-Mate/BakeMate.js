@@ -9,29 +9,21 @@ import Create_Event from './Create_Event';
 import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
+import {init as firebaseInit} from './firebase'
 
 import './BakeMate.css';
 
-var firebase = require("firebase");
 
-var config = {
-    apiKey: "AIzaSyBGwyz97yB9MlRJX9DG6MoLlwREzVOVthw",
-    authDomain: "bake-mate.firebaseapp.com",
-    databaseURL: "https://bake-mate.firebaseio.com",
-    projectId: "bake-mate",
-    storageBucket: "bake-mate.appspot.com",
-    messagingSenderId: "46970780431"
-  };
-  firebase.initializeApp(config);
 
 class BakeMate extends Component{
 
   constructor(props) {
    super(props);
+   firebaseInit();
    this.state = {
      open: false,
-     feed:false,
-     messages:true,
+     feed:true,
+     messages:false,
      create_event:false,
      buddies:false,
      profile:false,
