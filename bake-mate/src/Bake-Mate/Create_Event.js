@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {addSection as addSection} from './firebase';
+import {addPost as addPost} from './firebase';
 
 import FlatButton from 'material-ui/FlatButton';
 
-class Create_Event extends Component{
+class Create_event extends Component{
 
   constructor(props) {
    super(props);
@@ -16,7 +16,7 @@ class Create_Event extends Component{
   }
 
   send_event(){
-    addSection("bob");
+    addPost("bob");
     console.log('Done boi');
   }
 
@@ -25,4 +25,4 @@ class Create_Event extends Component{
   }
 
 }
-export default Create_Event;
+export default Create_event;

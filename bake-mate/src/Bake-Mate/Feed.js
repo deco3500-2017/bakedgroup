@@ -1,34 +1,52 @@
 import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import {getpostsDB as getPosts} from './firebase';
+import * as firebase from 'firebase';
 import './Feed.css';
+
 
 class Feed extends Component{
 
+    constructor(props) {
+      super(props);
+      this.state = { posts: [] }; // <- set up react state
+    }
+
+    componentWillMount(){
+      /* Create reference to messages in Firebase Database */
+      let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
+      postsRef.on('child_added', snapshot => {
+        console.log(snapshot.val());
+        /* Update React state when message is added at Firebase Database */
+        let post = { name: snapshot.val().name, id: snapshot.key };
+        this.setState({ posts: [post].concat(this.state.posts) });
+      })
+    }
+
+
   render(){
+    console.log(this.state);
     return(
-      <Card className="Standard-Post">
-        <CardHeader
-      title="John Smith"
-      subtitle="Subtitle"
-      avatar="images/jsa-128.jpg"
-    />
-    <CardMedia
-    >
-      <img className="image" src="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/pancakes.jpg?alt=media&token=33f89272-83c5-44c4-a5ad-2cabcea56b33" alt="" />
-    </CardMedia>
-    <CardText>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
-      </Card>
+      <div className="postBox">
+          { /* Render the list of messages */
+            this.state.posts.map( post =>
+              <Card
+                className="Standard-Post"
+                key={post.id}>
+              <CardTitle>
+                {post.name}
+              </CardTitle>
+            </Card> )
+          }
+      </div>
     );
+
+  }
+
+  getInfo(){
+     getPosts();
+     setTimeout(2000);
   }
 
 }

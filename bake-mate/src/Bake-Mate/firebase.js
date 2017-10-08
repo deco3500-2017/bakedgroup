@@ -18,12 +18,18 @@ export const init = () => {
 
 // retrieve from firebase
 // return promise object
-export const getSectionsDB = () => {
-  return database.ref('/').once('value')
-}
+export const getpostsDB = () => {
+  console.log("Getting posts");
+  database.ref('/posts/').once("value").then( function(data) {
+    console.log(data.val());
+    return data.val();
+});
+};
 
-// add new section
-export const addSection = (name) => {
+
+
+// add new post
+export const addPost = (name) => {
   let key = database.ref('posts').push().key
   let model = postModel(key, name, firebase.database.ServerValue.TIMESTAMP)
   return database.ref('/posts/'+ key).set(model)

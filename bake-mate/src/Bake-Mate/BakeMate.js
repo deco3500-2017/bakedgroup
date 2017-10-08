@@ -5,11 +5,11 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Feed from './Feed';
 import Messages from './Messages';
-import Create_Event from './Create_Event';
+import Create_event from './Create_Event';
 import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
-import {init as firebaseInit} from './firebase'
+import {init as firebaseInit} from './firebase';
 
 import './BakeMate.css';
 
@@ -31,7 +31,7 @@ class BakeMate extends Component{
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
-   this.changetoCreate_Event = this.changetoCreate_Event.bind(this);
+   this.changetoCreate_event = this.changetoCreate_event.bind(this);
    this.changetoBuddies = this.changetoBuddies.bind(this);
    this.changetoProfile = this.changetoProfile.bind(this);
    this.changetoSettings = this.changetoSettings.bind(this);
@@ -48,7 +48,7 @@ class BakeMate extends Component{
     }else if(this.state.messages){
       return(<Messages className="Messages"/>);
     }else if(this.state.create_event){
-      return(<Create_Event className="Create_Event" />);
+      return(<Create_event className="Create_event" />);
     }else if(this.state.buddies){
       return(<Buddies className="Buddies" />);
     }else if(this.state.profile){
@@ -84,7 +84,7 @@ class BakeMate extends Component{
     });
   }
 
-  changetoCreate_Event(){
+  changetoCreate_event(){
     this.setState({
       open: false,
       feed:false,
@@ -152,7 +152,7 @@ class BakeMate extends Component{
                 >
                 <MenuItem onClick={this.changetoHome} id="Home">Home</MenuItem>
                 <MenuItem onClick={this.changetoMessage} id="Messages">Messages</MenuItem>
-                <MenuItem onClick={this.changetoCreate_Event} id="Create_Event">Create Event</MenuItem>
+                <MenuItem onClick={this.changetoCreate_event} id="Create_Event">Create Event</MenuItem>
                 <MenuItem onClick={this.changetoBuddies} id="Buddies">Buddies</MenuItem>
                 <MenuItem onClick={this.changetoProfile} id="Profile">Profile</MenuItem>
                 <MenuItem onClick={this.changetoSettings} id="Settings">Settings</MenuItem>
