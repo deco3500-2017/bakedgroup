@@ -1,4 +1,9 @@
 .input_bar{
   position:fixed;
   bottom:0;
+  width:100vw;
+  background-color:#eeeeee;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
 }

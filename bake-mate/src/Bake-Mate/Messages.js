@@ -9,7 +9,10 @@ class Messages extends Component{
 render(){
   return(
     <div>
-    <div class="input_bar">
+    <div className="messageFeed">
+    </div>
+
+    <div className="input_bar">
     <TextField
     hintText="Message"
     multiLine={true}
