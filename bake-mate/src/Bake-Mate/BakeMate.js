@@ -46,15 +46,35 @@ class BakeMate extends Component{
         <Feed className="Feed"/>
       );
     }else if(this.state.messages){
-      return(<Messages className="Messages"/>);
+      return(
+        <div>
+        <Messages className="Messages"/>
+        </div>
+              );
     }else if(this.state.create_event){
-      return(<Create_event className="Create_event" />);
+      return(
+    <div>
+      <Create_event className="Create_event" />
+      </div>
+);
     }else if(this.state.buddies){
-      return(<Buddies className="Buddies" />);
+      return(
+      <div>
+      <Buddies className="Buddies" />
+      </div>
+);
     }else if(this.state.profile){
-      return(<Profile className="Profile" />);
+      return(
+      <div>
+        <Profile className="Profile" />
+      </div>
+);
     }else if(this.state.settings){
-      return(<Settings className="Settings" />);
+      return(
+      <div>
+        <Settings className="Settings" />
+      </div>
+);
     }
   }
 

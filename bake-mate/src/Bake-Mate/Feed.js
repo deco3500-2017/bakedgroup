@@ -10,23 +10,25 @@ class Feed extends Component{
 
     constructor(props) {
       super(props);
-      this.state = { posts: [] }; // <- set up react state
+      this.state = {
+        posts: [],
+       }; // <- set up react state
     }
 
-    componentWillMount(){
+    componentDidMount(){
       /* Create reference to messages in Firebase Database */
+
       let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
       postsRef.on('child_added', snapshot => {
-        console.log(snapshot.val());
-        /* Update React state when message is added at Firebase Database */
         let post = { name: snapshot.val().name, id: snapshot.key };
         this.setState({ posts: [post].concat(this.state.posts) });
-      })
+      });
+
     }
+
 
 
   render(){
-    console.log(this.state);
     return(
       <div className="postBox">
           { /* Render the list of messages */
@@ -34,9 +36,9 @@ class Feed extends Component{
               <Card
                 className="Standard-Post"
                 key={post.id}>
-              <CardTitle>
+              <CardHeader>
                 {post.name}
-              </CardTitle>
+              </CardHeader>
             </Card> )
           }
       </div>
@@ -47,6 +49,12 @@ class Feed extends Component{
   getInfo(){
      getPosts();
      setTimeout(2000);
+  }
+
+  componentWillUnmount(){
+    this.setState({
+      posts: [],
+    });
   }
 
 }

@@ -1,8 +1,18 @@
 .background{
   background-color:#efefef;
-
+  padding-bottom:20px;
+  padding-top:10px;
 }
 .AppBar{
   position: fixed;
 
+}
+
+.Feed{
+  height:100vh;
+}
+
+.Feed_Hidden{
+  opacity:0;
+  
 }
