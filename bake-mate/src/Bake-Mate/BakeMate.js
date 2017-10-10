@@ -42,9 +42,7 @@ class BakeMate extends Component{
 
   activePage(){
     if (this.state.feed){
-      return(
-        <Feed className="Feed"/>
-      );
+      
     }else if(this.state.messages){
       return(
         <div>
@@ -180,6 +178,7 @@ class BakeMate extends Component{
             </Drawer>
         <div className="background">
           {this.activePage()}
+          <Feed className="Feed"/>
         </div>
     </div>
     );
