@@ -22,3 +22,14 @@
 h1{
   padding-left:10px;
 }
+
+.login_true{
+  opacity:0;
+  overflow:hidden;
+  height:0vh;
+}
+.hidden{
+  opacity:0;
+  overflow:hidden;
+  height:0vh;
+}

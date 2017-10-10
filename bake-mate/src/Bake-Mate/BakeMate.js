@@ -9,6 +9,8 @@ import Create_event from './Create_Event';
 import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
+import Login from './Login';
+
 import {init as firebaseInit} from './firebase';
 
 import './BakeMate.css';
@@ -21,6 +23,7 @@ class BakeMate extends Component{
    super(props);
    firebaseInit();
    this.state = {
+     login:false,
      open: false,
      feed:true,
      messages:false,
@@ -28,7 +31,9 @@ class BakeMate extends Component{
      buddies:false,
      profile:false,
      settings:false,
-     feedClass:"Feed"
+     feedClass:"Feed",
+     loginClass:"login_false",
+     bodyClass:"hidden"
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -166,10 +171,21 @@ class BakeMate extends Component{
       });
     }
 
-  render()
-  {
+    componentDidMount(){
+      if(this.state.login){
+        this.setState({loginClass:"login_true", bodyClass:""}, () => {
+          console.log(this.state.bodyClass);
+        });
+      }
+    }
+
+  render(){
     return(
         <div className="BakeMate">
+        <div className={this.state.loginClass}>
+        <Login login={this.state.login}/>
+        </div>
+        <div className={this.state.bodyClass}>
           <AppBar
             title="BakeMate"
             onLeftIconButtonTouchTap={this.handleToggle}
@@ -192,10 +208,12 @@ class BakeMate extends Component{
                 <MenuItem onClick={this.changetoSettings} id="Settings">Settings</MenuItem>
               </Menu>
             </Drawer>
+
         <div className="background">
           {this.activePage()}
           <div className={this.state.feedClass}>
           <Feed className="Feed"/>
+          </div>
           </div>
         </div>
     </div>
