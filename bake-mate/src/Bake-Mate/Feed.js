@@ -31,6 +31,7 @@ class Feed extends Component{
   render(){
     return(
       <div className="postBox">
+      <h1>Feed</h1>
           { /* Render the list of messages */
             this.state.posts.map( post =>
               <Card

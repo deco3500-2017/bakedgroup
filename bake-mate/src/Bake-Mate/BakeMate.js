@@ -27,7 +27,8 @@ class BakeMate extends Component{
      create_event:false,
      buddies:false,
      profile:false,
-     settings:false
+     settings:false,
+     feedClass:"Feed"
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -42,7 +43,7 @@ class BakeMate extends Component{
 
   activePage(){
     if (this.state.feed){
-      
+
     }else if(this.state.messages){
       return(
         <div>
@@ -56,24 +57,28 @@ class BakeMate extends Component{
       </div>
 );
     }else if(this.state.buddies){
+
       return(
       <div>
       <Buddies className="Buddies" />
       </div>
 );
     }else if(this.state.profile){
+
       return(
       <div>
         <Profile className="Profile" />
       </div>
 );
     }else if(this.state.settings){
+
       return(
       <div>
         <Settings className="Settings" />
       </div>
 );
     }
+
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -86,7 +91,8 @@ class BakeMate extends Component{
       create_event:false,
       buddies:false,
       profile:false,
-      settings:false
+      settings:false,
+      feedClass:"Feed"
     });
   }
 
@@ -98,7 +104,9 @@ class BakeMate extends Component{
       create_event:false,
       buddies:false,
       profile:false,
-      settings:false
+      settings:false,
+      feedClass:"hideFeed"
+
     });
   }
 
@@ -110,7 +118,9 @@ class BakeMate extends Component{
       create_event:true,
       buddies:false,
       profile:false,
-      settings:false
+      settings:false,
+      feedClass:"hideFeed"
+
     });
   }
 
@@ -122,7 +132,9 @@ class BakeMate extends Component{
         create_event:false,
         buddies:true,
         profile:false,
-        settings:false
+        settings:false,
+        feedClass:"hideFeed"
+
       });
     }
 
@@ -134,7 +146,9 @@ class BakeMate extends Component{
         create_event:false,
         buddies:false,
         profile:true,
-        settings:false
+        settings:false,
+        feedClass:"hideFeed"
+
       });
     }
 
@@ -146,7 +160,9 @@ class BakeMate extends Component{
         create_event:false,
         buddies:false,
         profile:false,
-        settings:true
+        settings:true,
+        feedClass:"hideFeed"
+
       });
     }
 
@@ -178,7 +194,9 @@ class BakeMate extends Component{
             </Drawer>
         <div className="background">
           {this.activePage()}
+          <div className={this.state.feedClass}>
           <Feed className="Feed"/>
+          </div>
         </div>
     </div>
     );

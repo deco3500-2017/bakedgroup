@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Settings extends Component{
 render(){
-  return(<p>Settings</p>);
+  return(<h1>Settings</h1>);
 
 }
 
