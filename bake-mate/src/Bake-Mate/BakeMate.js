@@ -34,7 +34,8 @@ class BakeMate extends Component{
      settings:false,
      feedClass:"Feed",
      loginClass:"login_false",
-     bodyClass:"hidden"
+     bodyClass:"hidden",
+     currentUser:""
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -71,7 +72,8 @@ class BakeMate extends Component{
 
       return(
       <div>
-        <Profile className="Profile" />
+        <Profile className="Profile"
+        user={this.state.currentUser}/>
       </div>
 );
     }else if(this.state.settings){
@@ -182,12 +184,17 @@ class BakeMate extends Component{
     }
 
     checkLogin(){
-      console.log('checklogin');
-      console.log(getLogin);
+
       this.setState({login:true});
       this.setState({loginClass:"login_true", bodyClass:""}, () => {
-        console.log(this.state.bodyClass);
       });
+    }
+
+    getUsername(username){
+      this.setState({currentUser:username}, () => {
+        console.log(this.state.currentUser);
+      });
+
     }
 
   render(){
@@ -196,7 +203,9 @@ class BakeMate extends Component{
         <div className={this.state.loginClass}>
         <Login
         login={this.state.login}
-        callbackParent={(login) => this.checkLogin(login) }
+        callbackParent={(login) => this.checkLogin(login)}
+        getUserName = {(username) => this.getUsername(username)}
+
         />
         </div>
         <div className={this.state.bodyClass}>

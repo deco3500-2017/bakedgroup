@@ -20,7 +20,11 @@ class Feed extends Component{
 
       let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
       postsRef.on('child_added', snapshot => {
-        let post = { name: snapshot.val().name, id: snapshot.key };
+        let post = {
+          name: snapshot.val().name,
+          id: snapshot.key,
+          username: snapshot.username,
+        };
         this.setState({ posts: [post].concat(this.state.posts) });
       });
 

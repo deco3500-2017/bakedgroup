@@ -72,7 +72,7 @@ changeText5(e){
 
 LoginAttempt(){
   var username = this.state.username;
-  var password = this.state.password
+  var password = this.state.password;
   var userList = this.state.userList;
 
 
@@ -89,6 +89,8 @@ LoginAttempt(){
     this.setState({login:true, hidden:"hidden_true"}, () => {
       this.props.callbackParent(true);
     });
+    this.props.getUserName(this.state.username);
+
   }
 }
 
