@@ -10,6 +10,7 @@ import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
 import Login from './Login';
+import {login_status as getLogin} from './Login';
 
 import {init as firebaseInit} from './firebase';
 
@@ -41,8 +42,6 @@ class BakeMate extends Component{
    this.changetoBuddies = this.changetoBuddies.bind(this);
    this.changetoProfile = this.changetoProfile.bind(this);
    this.changetoSettings = this.changetoSettings.bind(this);
-
-
 
   }
 
@@ -87,6 +86,7 @@ class BakeMate extends Component{
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
+
 
   changetoHome(){
     this.setState({
@@ -172,18 +172,32 @@ class BakeMate extends Component{
     }
 
     componentDidMount(){
+
       if(this.state.login){
         this.setState({loginClass:"login_true", bodyClass:""}, () => {
           console.log(this.state.bodyClass);
         });
       }
+
+    }
+
+    checkLogin(){
+      console.log('checklogin');
+      console.log(getLogin);
+      this.setState({login:true});
+      this.setState({loginClass:"login_true", bodyClass:""}, () => {
+        console.log(this.state.bodyClass);
+      });
     }
 
   render(){
     return(
         <div className="BakeMate">
         <div className={this.state.loginClass}>
-        <Login login={this.state.login}/>
+        <Login
+        login={this.state.login}
+        callbackParent={(login) => this.checkLogin(login) }
+        />
         </div>
         <div className={this.state.bodyClass}>
           <AppBar

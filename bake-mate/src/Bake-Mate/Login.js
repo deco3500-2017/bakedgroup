@@ -3,8 +3,12 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import {addUser as sendUser} from './firebase';
+import {getusersDB as getUsers} from './firebase';
+import * as firebase from 'firebase';
 
 import './Login.css';
+
+var loginBool = false;
 
 class Login extends Component{
 
@@ -17,7 +21,9 @@ constructor(props){
     password_new:"",
     password_confirm_new:"",
     username:"",
-    password:""
+    password:"",
+    userList:[],
+    hidden:''
   }
   this.handleToggle = this.handleToggle.bind(this);
   this.CreateAccount = this.CreateAccount.bind(this);
@@ -65,16 +71,40 @@ changeText5(e){
 }
 
 LoginAttempt(){
-  console.log(this.state.username);
-  console.log(this.state.password);
+  var username = this.state.username;
+  var password = this.state.password
+  var userList = this.state.userList;
 
 
+  userList.forEach(function(object){
+    if(username === object.username && password === object.password){
+      loginBool = true;
+
+      console.log(loginBool);
+    }else{
+    }
+  });
+
+  if(loginBool){
+    this.setState({login:true, hidden:"hidden_true"}, () => {
+      this.props.callbackParent(true);
+    });
+  }
 }
 
+componentWillMount(){
+  let usersRef = firebase.database().ref('/users/').orderByKey();
+  usersRef.on('child_added', snapshot => {
+    let user = { username: snapshot.val().username, id: snapshot.key, password: snapshot.val().password };
+    this.setState({ userList: [user].concat(this.state.userList)});
+  });
+
+}
 
 render(){
 
   return(
+    <div className={this.state.hidden}>
     <div>
       <Dialog
       open={this.state.dialog_open}
@@ -131,6 +161,7 @@ render(){
       />
       </div>
     </div>
+    </div>
 
   );
 }
@@ -139,3 +170,8 @@ render(){
 
 }
 export default Login;
+
+export const login_status = () => {
+  return(loginBool);
+
+};
