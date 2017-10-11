@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-import addUser from 'firebase';
+import {addUser as sendUser} from './firebase';
 
 import './Login.css';
 
@@ -24,6 +24,9 @@ constructor(props){
   this.changeText1 = this.changeText1.bind(this);
   this.changeText2 = this.changeText2.bind(this);
   this.changeText3 = this.changeText3.bind(this);
+  this.changeText4 = this.changeText4.bind(this);
+  this.changeText5 = this.changeText5.bind(this);
+  this.LoginAttempt = this.LoginAttempt.bind(this);
 }
 
 
@@ -35,7 +38,10 @@ CreateAccount(){
   console.log(this.state.username_new);
   console.log(this.state.password_new);
   console.log(this.state.password_confirm_new);
-
+  if(this.state.password_new === this.state.password_confirm_new){
+    sendUser(this.state.username_new, this.state.password_new);
+    console.log('Adding user');
+  }
   this.handleToggle();
 }
 
@@ -49,6 +55,22 @@ changeText2(e){
 changeText3(e){
   this.setState({password_confirm_new:e.target.value});
 }
+
+changeText4(e){
+  this.setState({username:e.target.value});
+}
+
+changeText5(e){
+  this.setState({password:e.target.value});
+}
+
+LoginAttempt(){
+  console.log(this.state.username);
+  console.log(this.state.password);
+
+
+}
+
 
 render(){
 
@@ -88,15 +110,18 @@ render(){
       <h1>Login</h1>
       <TextField
       hintText="Username"
+      onChange={this.changeText4}
+      value={this.state.username}
       />
       <TextField
       hintText="Password"
       type="password"
-
+      onChange={this.changeText5}
+      value={this.state.password}
       />
       <FlatButton
       label="Login!"
-
+      onClick={this.LoginAttempt}
       />
 
       <p>Dont have an account?</p>

@@ -22,15 +22,20 @@ export const init = () => {
 export const getpostsDB = () => {
   console.log("Getting posts");
   database.ref('/posts/').once("value").then( function(data) {
-    console.log(data.val());
     return data.val();
 });
 };
 
+export const getusersDB = () => {
+  database.ref('/users/').once("value").then(function(data) {
+    return data.val();
+  });
+}
+
 export const addUser = (username, password) => {
-  let key = database.ref('users').push().key;
-  let model = userModel(key, username, password);
-  return database.red('/users/' + key).set(model);
+  let key = database.ref('users').push().key
+  let model = userModel(key, username, password)
+  return database.ref('/users/' + key).set(model);
 }
 
 
