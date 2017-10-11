@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 import postModel from './models/post';
+import userModel from './models/user';
 
 
 let database
@@ -26,6 +27,11 @@ export const getpostsDB = () => {
 });
 };
 
+export const addUser = (username, password) => {
+  let key = database.ref('users').push().key;
+  let model = userModel(key, username, password);
+  return database.red('/users/' + key).set(model);
+}
 
 
 // add new post
