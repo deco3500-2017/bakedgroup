@@ -2,6 +2,7 @@
   background-color:#efefef;
   padding-bottom:20px;
   padding-top:10px;
+  height:100vh;
 }
 .AppBar{
   position: fixed;
@@ -9,10 +10,31 @@
 }
 
 .Feed{
-  height:100vh;
+
 }
 
-.Feed_Hidden{
+.hideFeed{
   opacity:0;
+  overflow:hidden;
+  height:0vh;
+}
+
+h1{
+  padding-left:10px;
+}
+
+.login_true{
+  opacity:0;
+  overflow:hidden;
+  height:0vh;
+}
+.hidden{
+  opacity:0;
+  overflow:hidden;
+  height:0vh;
+}
+
+.picture{
+  overflow:hidden;
   
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {addPost as addPost} from './firebase';
 import TextField from 'material-ui/TextField';
-
 import FlatButton from 'material-ui/FlatButton';
+import './Create_Event.css';
 
 class Create_event extends Component{
 
@@ -29,6 +29,7 @@ class Create_event extends Component{
     return(
       <div>
       <h1> Create Event!</h1>
+      <div className="Create_Event">
       <TextField
        hintText="Name"
        onChange={this.changeText}
@@ -37,9 +38,11 @@ class Create_event extends Component{
       </TextField>
       <FlatButton
       onClick={this.send_event}
-      >
-      Create Event
-      </FlatButton>
+      label="Create Event"
+      primary={true}
+      />
+
+      </div>
       </div>
     );
   }

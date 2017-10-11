@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "material-ui-icons": "^1.0.0-beta.15",
+    "material-ui-upload": "^1.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

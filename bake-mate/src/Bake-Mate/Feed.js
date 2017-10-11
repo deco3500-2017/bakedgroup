@@ -20,7 +20,11 @@ class Feed extends Component{
 
       let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
       postsRef.on('child_added', snapshot => {
-        let post = { name: snapshot.val().name, id: snapshot.key };
+        let post = {
+          name: snapshot.val().name,
+          id: snapshot.key,
+          username: snapshot.username,
+        };
         this.setState({ posts: [post].concat(this.state.posts) });
       });
 
@@ -31,6 +35,7 @@ class Feed extends Component{
   render(){
     return(
       <div className="postBox">
+      <h1>Feed</h1>
           { /* Render the list of messages */
             this.state.posts.map( post =>
               <Card
