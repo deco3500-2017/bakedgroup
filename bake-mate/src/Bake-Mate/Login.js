@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+
+import Image_Preview from './Image_Preview';
 import {addUser as sendUser} from './firebase';
 import {getusersDB as getUsers} from './firebase';
 import * as firebase from 'firebase';
@@ -23,7 +25,8 @@ constructor(props){
     username:"",
     password:"",
     userList:[],
-    hidden:''
+    hidden:'',
+    avatar: {}
   }
   this.handleToggle = this.handleToggle.bind(this);
   this.CreateAccount = this.CreateAccount.bind(this);
@@ -33,22 +36,29 @@ constructor(props){
   this.changeText4 = this.changeText4.bind(this);
   this.changeText5 = this.changeText5.bind(this);
   this.LoginAttempt = this.LoginAttempt.bind(this);
+
 }
 
 
 handleToggle(){this.setState({dialog_open: !this.state.dialog_open});}
 
-
+getProfileImage(image){
+  this.setState({avatar:image});
+}
 
 CreateAccount(){
-  console.log(this.state.username_new);
-  console.log(this.state.password_new);
-  console.log(this.state.password_confirm_new);
+
   if(this.state.password_new === this.state.password_confirm_new){
-    sendUser(this.state.username_new, this.state.password_new);
+    sendUser(this.state.username_new, this.state.password_new,this.state.avatar);
     console.log('Adding user');
   }
-  this.handleToggle();
+  this.setState({
+    username:this.state.username_new,
+    password:this.state.password_new
+  }, () => {
+    this.handleToggle();
+    this.LoginAttempt();
+  });
 }
 
 changeText1(e){
@@ -113,6 +123,11 @@ render(){
       onRequestClose={this.handleToggle}
       >
       <h2>Create Account</h2>
+
+      <Image_Preview
+      getProfileImage = {(image) => this.getProfileImage(image)}
+              />
+
       <TextField
       hintText="UserName"
       onChange={this.changeText1}

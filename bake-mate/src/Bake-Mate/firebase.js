@@ -32,9 +32,9 @@ export const getusersDB = () => {
   });
 }
 
-export const addUser = (username, password) => {
+export const addUser = (username, password, avatar) => {
   let key = database.ref('users').push().key
-  let model = userModel(key, username, password)
+  let model = userModel(key, username, password, avatar)
   return database.ref('/users/' + key).set(model);
 }
 

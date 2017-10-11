@@ -60,14 +60,14 @@ class BakeMate extends Component{
     <div>
       <Create_event className="Create_event" />
       </div>
-);
+      );
     }else if(this.state.buddies){
 
       return(
       <div>
       <Buddies className="Buddies" />
       </div>
-);
+      );
     }else if(this.state.profile){
 
       return(
@@ -75,14 +75,14 @@ class BakeMate extends Component{
         <Profile className="Profile"
         user={this.state.currentUser}/>
       </div>
-);
+      );
     }else if(this.state.settings){
 
       return(
       <div>
         <Settings className="Settings" />
       </div>
-);
+      );
     }
 
   }
