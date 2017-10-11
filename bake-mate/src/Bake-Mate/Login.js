@@ -13,18 +13,42 @@ constructor(props){
     login:props.login,
     dialog_open:false,
   }
+  this.handleToggle = this.handleToggle.bind(this);
+  this.CreateAccount = this.CreateAccount.bind(this);
 }
 
-handleToggle = () => this.setState({dialog_open: !this.state.dialog_open});
 
+handleToggle(){this.setState({dialog_open: !this.state.dialog_open});}
+
+CreateAccount(){
+  this.handleToggle();
+}
 
 render(){
 
   return(
     <div>
       <Dialog
-      open={false}
+      open={this.state.dialog_open}
+      onRequestClose={this.handleToggle}
+      >
+      <h2>Create Account</h2>
+      <TextField
+      hintText="UserName"
       />
+      <TextField
+      hintText="Password"
+      />
+      <TextField
+      hintText="Confirm Password"
+      />
+      <FlatButton
+      label="Go!"
+      onClick={this.CreateAccount}
+      />
+      </Dialog>
+
+
       <div className="Login">
       <h1>Login</h1>
       <TextField
