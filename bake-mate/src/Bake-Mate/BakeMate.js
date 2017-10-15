@@ -24,7 +24,7 @@ class BakeMate extends Component{
    super(props);
    firebaseInit();
    this.state = {
-     login:false,
+     login:true,
      open: false,
      feed:true,
      messages:false,
