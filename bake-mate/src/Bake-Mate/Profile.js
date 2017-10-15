@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Avatar from 'material-ui/Avatar';
 
 class Profile extends Component{
 
@@ -11,7 +12,15 @@ class Profile extends Component{
   }
 
 render(){
-  return(<h1>{this.state.currentUser}</h1>);
+  return(
+    <div>
+    <h1>{this.state.currentUser.username}</h1>
+    <Avatar
+    src={this.state.currentUser.avatar}
+    size={120}
+    />
+    </div>
+  );
 
 }
 

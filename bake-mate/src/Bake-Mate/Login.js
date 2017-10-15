@@ -87,6 +87,7 @@ LoginAttempt(){
   var username = this.state.username;
   var password = this.state.password;
   var userList = this.state.userList;
+  var avatar = this.state.avatar;
 
   console.log(username);
   console.log(password);
@@ -94,18 +95,21 @@ LoginAttempt(){
 
   userList.forEach(function(object){
     if(username === object.username && password === object.password){
+      avatar = object.avatar;
       loginBool = true;
-
       console.log(loginBool);
     }else{
     }
   });
 
   if(loginBool){
-    this.setState({login:true, hidden:"hidden_true"}, () => {
+    this.setState({login:true, avatar:avatar ,hidden:"hidden_true"}, () => {
       this.props.callbackParent(true);
     });
-    this.props.getUserName(this.state.username);
+    this.props.getUser({
+      username: username,
+      avatar:avatar
+    });
 
   }
 }
@@ -113,7 +117,7 @@ LoginAttempt(){
 componentWillMount(){
   let usersRef = firebase.database().ref('/users/').orderByKey();
   usersRef.on('child_added', snapshot => {
-    let user = { username: snapshot.val().username, id: snapshot.key, password: snapshot.val().password };
+    let user = { username: snapshot.val().username, id: snapshot.key, password: snapshot.val().password, avatar: snapshot.val().avatar};
     this.setState({ userList: [user].concat(this.state.userList)});
   });
 
@@ -131,7 +135,8 @@ render(){
       <h2>Create Account</h2>
 
       <Image_Preview
-      getProfileImage = {(image) => this.getProfileImage(image)}
+      getImage = {(image) => this.getProfileImage(image)}
+      useAvatar = {true}
               />
 
       <TextField

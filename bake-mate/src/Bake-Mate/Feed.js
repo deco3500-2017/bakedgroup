@@ -19,7 +19,7 @@ class Feed extends Component{
           image: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/brian-chan-12168.jpg?alt=media&token=42a4d264-6b76-4279-a0bf-b42e8d921ff6",
           description: "I'd like to improve my icing skills on cupcakes. I've been practicing and am getting good, but would like to work with somebody to improve. I'm happy to host, and am free from 8-12 on Saturdays and Sundays. ",
           host:"John Smith",
-          hostAvatar:"https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/erik-lucatero-310633.jpg?alt=media&token=1b9b7396-4881-47fe-b3a7-97177cede48c",
+          avatar:"https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/erik-lucatero-310633.jpg?alt=media&token=1b9b7396-4881-47fe-b3a7-97177cede48c",
           difficulty:"Difficulty: 3/5",
           attendees:[
             {
@@ -42,11 +42,18 @@ class Feed extends Component{
       let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
       postsRef.on('child_added', snapshot => {
         let post = {
-          title: snapshot.val().name,
-          id: snapshot.key,
-          username: snapshot.username,
+          key: snapshot.id,
+          id: snapshot.id,
+          title: snapshot.title,
+          host: snapshot.host,
+          avatar: snapshot.avatar,
+          image: snapshot.image,
+          difficulty: snapshot.difficulty,
+          description: snapshot.description,
+          attendees: snapshot.attendees,
+          timestamp: snapshot.timestamp
         };
-        //this.setState({ posts: [post].concat(this.state.posts) });
+        this.setState({ posts: [post].concat(this.state.posts) });
       });
 
     }
@@ -62,12 +69,13 @@ class Feed extends Component{
                 key={post.id}
                 id={post.id}
                 host={post.host}
-                avatar={post.hostAvatar}
+                avatar={post.avatar}
                 image={post.image}
                 title={post.title}
                 difficulty={post.difficulty}
                 description={post.description}
                 attendees={post.attendees}
+                timestamp={post.timestamp}
               /> )
 
           }

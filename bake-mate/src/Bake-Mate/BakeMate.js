@@ -24,7 +24,7 @@ class BakeMate extends Component{
    super(props);
    firebaseInit();
    this.state = {
-     login:true,
+     login:false,
      open: false,
      feed:true,
      messages:false,
@@ -59,7 +59,10 @@ class BakeMate extends Component{
     }else if(this.state.create_event){
       return(
     <div>
-      <Create_event className="Create_event" />
+      <Create_event
+      className="Create_event"
+      currentUser={this.state.currentUser}
+       />
       </div>
       );
     }else if(this.state.buddies){
@@ -199,8 +202,8 @@ class BakeMate extends Component{
       });
     }
 
-    getUsername(username){
-      this.setState({currentUser:username}, () => {
+    getUser(user){
+      this.setState({currentUser:user}, () => {
         console.log(this.state.currentUser);
       });
 
@@ -213,7 +216,7 @@ class BakeMate extends Component{
         <Login
         login={this.state.login}
         callbackParent={(login) => this.checkLogin(login)}
-        getUserName = {(username) => this.getUsername(username)}
+        getUser = {(user) => this.getUser(user)}
 
         />
         </div>

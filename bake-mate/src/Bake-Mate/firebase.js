@@ -40,8 +40,9 @@ export const addUser = (username, password, avatar) => {
 
 
 // add new post
-export const addPost = (name) => {
+export const addPost = (title, host, avatar, image, difficulty, description, attendees) => {
+  console.log(title, host, avatar, image, difficulty, description, attendees);
   let key = database.ref('posts').push().key
-  let model = postModel(key, name, firebase.database.ServerValue.TIMESTAMP)
+  let model = postModel(key, title, host, avatar, image, difficulty, description, attendees, firebase.database.ServerValue.TIMESTAMP)
   return database.ref('/posts/'+ key).set(model)
 }
