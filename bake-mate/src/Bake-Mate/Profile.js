@@ -11,7 +11,7 @@ class Profile extends Component{
   }
 
 render(){
-  return(<h1>{this.state.currentUser}s Profile</h1>);
+  return(<h1>{this.state.currentUser}</h1>);
 
 }
 

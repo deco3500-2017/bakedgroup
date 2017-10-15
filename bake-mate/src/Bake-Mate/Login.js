@@ -49,16 +49,18 @@ getProfileImage(image){
 CreateAccount(){
 
   if(this.state.password_new === this.state.password_confirm_new){
+    console.log('true');
     sendUser(this.state.username_new, this.state.password_new,this.state.avatar);
-    console.log('Adding user');
+
+    this.setState({
+        username:this.state.username_new,
+        password:this.state.password_new
+      }, () => {
+        this.handleToggle();
+        this.LoginAttempt();
+        console.log('Adding user');
+      });
   }
-  this.setState({
-    username:this.state.username_new,
-    password:this.state.password_new
-  }, () => {
-    this.handleToggle();
-    this.LoginAttempt();
-  });
 }
 
 changeText1(e){
@@ -81,10 +83,14 @@ changeText5(e){
 }
 
 LoginAttempt(){
+  console.log('started login function');
   var username = this.state.username;
   var password = this.state.password;
   var userList = this.state.userList;
 
+  console.log(username);
+  console.log(password);
+  console.log(userList);
 
   userList.forEach(function(object){
     if(username === object.username && password === object.password){

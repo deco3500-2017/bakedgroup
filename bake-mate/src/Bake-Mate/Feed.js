@@ -6,12 +6,27 @@ import * as firebase from 'firebase';
 import './Feed.css';
 
 
+var avatarImg = avatar;
+
 class Feed extends Component{
 
     constructor(props) {
       super(props);
       this.state = {
-        posts: [],
+        posts: [
+
+        {
+          id:"abc",
+          title: "Bake Cupcakes with me!",
+          image: "",
+          description: "",
+          host:"John Smith",
+          hostAvatar: avatarImg
+          ,
+          attendees:[],
+        },
+
+      ],
        }; // <- set up react state
     }
 
@@ -21,7 +36,7 @@ class Feed extends Component{
       let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
       postsRef.on('child_added', snapshot => {
         let post = {
-          name: snapshot.val().name,
+          title: snapshot.val().name,
           id: snapshot.key,
           username: snapshot.username,
         };
@@ -35,15 +50,21 @@ class Feed extends Component{
   render(){
     return(
       <div className="postBox">
-      <h1>Feed</h1>
           { /* Render the list of messages */
             this.state.posts.map( post =>
               <Card
                 className="Standard-Post"
                 key={post.id}>
-              <CardHeader>
-                {post.name}
-              </CardHeader>
+              <CardHeader
+              title={post.host}
+              avatar={post.hostAvatar}
+              />
+            <CardMedia>
+              <img src={post.image} alt=""/>
+            </CardMedia>
+            <CardTitle
+              title={post.title}
+            />
             </Card> )
           }
       </div>

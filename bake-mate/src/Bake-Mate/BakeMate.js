@@ -35,7 +35,8 @@ class BakeMate extends Component{
      feedClass:"Feed",
      loginClass:"login_false",
      bodyClass:"hidden",
-     currentUser:""
+     currentUser:{},
+     pageTitle:"BakeMate"
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -99,7 +100,8 @@ class BakeMate extends Component{
       buddies:false,
       profile:false,
       settings:false,
-      feedClass:"Feed"
+      feedClass:"Feed",
+      pageTitle:"BakeMate"
     });
   }
 
@@ -112,7 +114,9 @@ class BakeMate extends Component{
       buddies:false,
       profile:false,
       settings:false,
-      feedClass:"hideFeed"
+      feedClass:"hideFeed",
+      pageTitle:"Messages"
+
 
     });
   }
@@ -126,7 +130,8 @@ class BakeMate extends Component{
       buddies:false,
       profile:false,
       settings:false,
-      feedClass:"hideFeed"
+      feedClass:"hideFeed",
+      pageTitle:"Create Event"
 
     });
   }
@@ -140,7 +145,9 @@ class BakeMate extends Component{
         buddies:true,
         profile:false,
         settings:false,
-        feedClass:"hideFeed"
+        feedClass:"hideFeed",
+        pageTitle:"Buddies"
+
 
       });
     }
@@ -154,7 +161,9 @@ class BakeMate extends Component{
         buddies:false,
         profile:true,
         settings:false,
-        feedClass:"hideFeed"
+        feedClass:"hideFeed",
+        pageTitle:"Profile"
+
 
       });
     }
@@ -168,8 +177,8 @@ class BakeMate extends Component{
         buddies:false,
         profile:false,
         settings:true,
-        feedClass:"hideFeed"
-
+        feedClass:"hideFeed",
+        pageTitle:"Settings"
       });
     }
 
@@ -210,7 +219,7 @@ class BakeMate extends Component{
         </div>
         <div className={this.state.bodyClass}>
           <AppBar
-            title="BakeMate"
+            title={this.state.pageTitle}
             onLeftIconButtonTouchTap={this.handleToggle}
             className="AppBar"
             />
