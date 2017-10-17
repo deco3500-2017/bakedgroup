@@ -54,7 +54,10 @@ class Feed extends Component{
           timestamp: snapshot.timestamp
         };
         this.setState({ posts: [post].concat(this.state.posts) });
+        console.log(this.state.posts);
+
       });
+
 
     }
 
