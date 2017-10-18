@@ -9,18 +9,6 @@ class Messages extends Component{
 render(){
   return(
     <div>
-    <div className="messageFeed">
-    </div>
-
-    <div className="input_bar">
-    <TextField
-    hintText="Message"
-    multiLine={true}
-    />
-    <IconButton>
-    <Send/>
-    </IconButton>
-    </div>
     </div>
   );
 }

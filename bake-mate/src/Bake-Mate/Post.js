@@ -30,11 +30,22 @@ class Post extends Component{
       date_time:props.date_time,
       description:props.description,
       attendees:props.attendees,
+      currentUser: props.currentUser,
     }
+    this.joinPost = this.joinPost.bind(this);
   }
 
   togglePost = () => this.setState({open: !this.state.open});
 
+  joinPost(){
+    var list = this.state.attendees;
+    var newUser = {
+      name:this.state.currentUser.username,
+      avatar: this.state.currentUser.avatar
+    }
+    list.push(newUser);
+    this.forceUpdate();
+  }
 
 render(){
   if(this.state.open){
@@ -69,9 +80,9 @@ render(){
     {this.state.attendees.map( attendee =>
       <li className="attendeesObject" key={attendee.name}>
         <Avatar
-        className="avatar"
+          className="avatar"
           src={attendee.avatar}
-          size={30}
+          size={50}
         />
         <p>{attendee.name}</p>
         </li>
@@ -84,6 +95,7 @@ render(){
         backgroundColor="#26c6da"
         fullWidth={true}
         labelStyle={buttonStyle}
+        onClick={this.joinPost}
       />
     </CardActions>
   </Card>

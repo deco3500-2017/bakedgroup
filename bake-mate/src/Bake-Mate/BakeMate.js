@@ -37,8 +37,9 @@ class BakeMate extends Component{
      bodyClass:"hidden",
      currentUser:{
        id: "11234",
-       username: "TEST USER",
+       username: "Choc Chip",
        password: "TEST PASSWORD",
+       email:'cookie@gmail.com',
        avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/brian-chan-12168.jpg?alt=media&token=42a4d264-6b76-4279-a0bf-b42e8d921ff6",
      },
      pageTitle:"BakeMate"
@@ -209,7 +210,6 @@ class BakeMate extends Component{
 
     getUser(user){
       this.setState({currentUser:user}, () => {
-        console.log(this.state.currentUser);
       });
 
     }
@@ -252,7 +252,10 @@ class BakeMate extends Component{
         <div className="background">
           {this.activePage()}
           <div className={this.state.feedClass}>
-          <Feed className="Feed"/>
+          <Feed
+          currentUser={this.state.currentUser}
+          className="Feed"
+          />
           </div>
           </div>
         </div>

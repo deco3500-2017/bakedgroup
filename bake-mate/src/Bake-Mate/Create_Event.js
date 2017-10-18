@@ -24,8 +24,7 @@ class Create_event extends Component{
      attendees:"",
    }
 
-   console.log(this.state);
-   
+
    this.send_event = this.send_event.bind(this);
    this.changeTitle = this.changeTitle.bind(this);
 
@@ -34,7 +33,6 @@ class Create_event extends Component{
   send_event(){
 
     addPost(this.state.title, this.state.host, this.state.avatar, this.state.image, this.state.difficulty, this.state.desc, this.state.attendees);
-    console.log('Done boi');
   }
 
   changeTitle(e){

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Avatar from 'material-ui/Avatar';
 
+import './profile.css';
+
 class Profile extends Component{
 
   constructor(props){
@@ -14,10 +16,12 @@ class Profile extends Component{
 render(){
   return(
     <div>
-    <h1>{this.state.currentUser.username}</h1>
+    <p><strong>Name:</strong> {this.state.currentUser.username}</p>
+    <p><strong>Email:</strong> {this.state.currentUser.email}</p>
     <Avatar
+    className="profilepic"
     src={this.state.currentUser.avatar}
-    size={120}
+    size={60}
     />
     </div>
   );
