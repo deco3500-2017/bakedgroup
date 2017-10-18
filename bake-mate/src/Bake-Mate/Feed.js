@@ -21,6 +21,7 @@ class Feed extends Component{
           host:"John Smith",
           avatar:"https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/erik-lucatero-310633.jpg?alt=media&token=1b9b7396-4881-47fe-b3a7-97177cede48c",
           difficulty:"Difficulty: 3/5",
+          date_time:'Date and Time: TBD',
           attendees:[
             {
               name:"Jane Smith",
@@ -39,6 +40,7 @@ class Feed extends Component{
     componentDidMount(){
       /* Create reference to messages in Firebase Database */
 
+    /*
       let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
       postsRef.on('child_added', snapshot => {
         let post = {
@@ -58,7 +60,7 @@ class Feed extends Component{
 
       });
 
-
+      */
     }
 
 
@@ -76,6 +78,7 @@ class Feed extends Component{
                 image={post.image}
                 title={post.title}
                 difficulty={post.difficulty}
+                date_time={post.date_time}
                 description={post.description}
                 attendees={post.attendees}
                 timestamp={post.timestamp}

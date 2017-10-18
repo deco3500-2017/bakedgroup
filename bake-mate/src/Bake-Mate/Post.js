@@ -27,6 +27,7 @@ class Post extends Component{
       image:props.image,
       title:props.title,
       difficulty:props.difficulty,
+      date_time:props.date_time,
       description:props.description,
       attendees:props.attendees,
     }
@@ -62,6 +63,7 @@ render(){
     subtitle= {this.state.difficulty}
   />
   <CardText>{this.state.description}</CardText>
+  <CardText>{this.state.date_time}</CardText>
   <CardText><strong>Attendees:</strong>
   <ul className="attendeesList">
     {this.state.attendees.map( attendee =>

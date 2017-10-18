@@ -83,15 +83,10 @@ changeText5(e){
 }
 
 LoginAttempt(){
-  console.log('started login function');
   var username = this.state.username;
   var password = this.state.password;
   var userList = this.state.userList;
   var avatar = this.state.avatar;
-
-  console.log(username);
-  console.log(password);
-  console.log(userList);
 
   userList.forEach(function(object){
     if(username === object.username && password === object.password){
@@ -115,11 +110,12 @@ LoginAttempt(){
 }
 
 componentWillMount(){
-  let usersRef = firebase.database().ref('/users/').orderByKey();
+  /*let usersRef = firebase.database().ref('/users/').orderByKey();
   usersRef.on('child_added', snapshot => {
     let user = { username: snapshot.val().username, id: snapshot.key, password: snapshot.val().password, avatar: snapshot.val().avatar};
     this.setState({ userList: [user].concat(this.state.userList)});
   });
+  */
 
 }
 

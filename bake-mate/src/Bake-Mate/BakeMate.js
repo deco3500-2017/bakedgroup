@@ -24,7 +24,7 @@ class BakeMate extends Component{
    super(props);
    firebaseInit();
    this.state = {
-     login:false,
+     login:true,
      open: false,
      feed:true,
      messages:false,
@@ -35,7 +35,12 @@ class BakeMate extends Component{
      feedClass:"Feed",
      loginClass:"login_false",
      bodyClass:"hidden",
-     currentUser:{},
+     currentUser:{
+       id: "11234",
+       username: "TEST USER",
+       password: "TEST PASSWORD",
+       avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/brian-chan-12168.jpg?alt=media&token=42a4d264-6b76-4279-a0bf-b42e8d921ff6",
+     },
      pageTitle:"BakeMate"
    };
    this.changetoHome = this.changetoHome.bind(this);
