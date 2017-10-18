@@ -33,7 +33,8 @@ class Post extends Component{
       currentUser: props.currentUser,
       style:{
         'font-size':'30pt'
-      }
+      },
+      button:props.button
     }
     this.joinPost = this.joinPost.bind(this);
   }
@@ -52,6 +53,7 @@ class Post extends Component{
 
 render(){
   if(this.state.open){
+    if(this.state.button){
   return(
     <Card
       className="Expanded-Post"
@@ -64,7 +66,6 @@ render(){
       onClick={this.togglePost}
       className="IconButton"
       >
-
       <ExpandLess/>
       </IconButton>
     }
@@ -104,6 +105,51 @@ render(){
     </CardActions>
   </Card>
     )
+  }else{
+    return(
+      <Card
+        className="Expanded-Post"
+        key={this.state.id}>
+      <CardHeader
+      title={this.state.host}
+      avatar={this.state.hostAvatar}
+      children = {
+        <IconButton
+        onClick={this.togglePost}
+        className="IconButton"
+        >
+
+        <ExpandLess/>
+        </IconButton>
+      }
+      />
+    <CardMedia>
+      <img src={this.state.image} alt=""/>
+    </CardMedia>
+    <CardTitle
+      title={this.state.title}
+      subtitle= {this.state.difficulty}
+      titleStyle={this.style}
+    />
+    <CardText>{this.state.description}</CardText>
+    <CardText>{this.state.date_time}</CardText>
+    <CardText><strong>Attendees:</strong>
+    <ul className="attendeesList">
+      {this.state.attendees.map( attendee =>
+        <li className="attendeesObject" key={attendee.name}>
+          <Avatar
+            className="avatar"
+            src={attendee.avatar}
+            size={50}
+          />
+          <p>{attendee.name}</p>
+          </li>
+      )}
+      </ul>
+      </CardText>
+    </Card>
+    )
+  }
   }else{
     return(
       <Card

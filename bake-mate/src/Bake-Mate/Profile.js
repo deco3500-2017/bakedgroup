@@ -36,8 +36,9 @@ render(){
     src={this.state.currentUser.avatar}
     size={60}
     />
+    <div className="header"><strong>Posts:</strong></div>
     <div className="posts">
-      <strong>Posts:</strong>
+
       <Post
       currentUser={this.state.currentUser}
       key="222"
@@ -51,6 +52,7 @@ render(){
       description="I would really like to bake some pancakes."
       attendees={this.state.attendees}
       timestamp="2"
+      button={false}
       />
 
     </div>

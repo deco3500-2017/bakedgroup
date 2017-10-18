@@ -163,6 +163,7 @@ class Feed extends Component{
                 description={post.description}
                 attendees={post.attendees}
                 timestamp={post.timestamp}
+                button={true}
               /> )
 
           }
