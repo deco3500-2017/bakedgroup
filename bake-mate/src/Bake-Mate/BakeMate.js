@@ -9,7 +9,6 @@ import Create_event from './Create_Event';
 import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
-import Login from './Login';
 import {login_status as getLogin} from './Login';
 
 import {init as firebaseInit} from './firebase';
@@ -37,9 +36,9 @@ class BakeMate extends Component{
      bodyClass:"hidden",
      currentUser:{
        id: "11234",
-       username: "Choc Chip",
+       username: "Jodie Green",
        password: "TEST PASSWORD",
-       email:'cookie@gmail.com',
+       email:'jodiegreen@gmail.com',
        avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/brian-chan-12168.jpg?alt=media&token=42a4d264-6b76-4279-a0bf-b42e8d921ff6",
      },
      pageTitle:"BakeMate"
@@ -217,14 +216,7 @@ class BakeMate extends Component{
   render(){
     return(
         <div className="BakeMate">
-        <div className={this.state.loginClass}>
-        <Login
-        login={this.state.login}
-        callbackParent={(login) => this.checkLogin(login)}
-        getUser = {(user) => this.getUser(user)}
 
-        />
-        </div>
         <div className={this.state.bodyClass}>
           <AppBar
             title={this.state.pageTitle}
@@ -244,7 +236,8 @@ class BakeMate extends Component{
                 <MenuItem onClick={this.changetoMessage} id="Messages">Messages</MenuItem>
                 <MenuItem onClick={this.changetoCreate_event} id="Create_Event">Create Event</MenuItem>
                 <MenuItem onClick={this.changetoBuddies} id="Buddies">Buddies</MenuItem>
-                <MenuItem onClick={this.changetoProfile} id="Profile">Profile</MenuItem>
+                <MenuItem onClick={this.changetoProfile} id="Profile">
+                Profile</MenuItem>
                 <MenuItem onClick={this.changetoSettings} id="Settings">Settings</MenuItem>
               </Menu>
             </Drawer>
