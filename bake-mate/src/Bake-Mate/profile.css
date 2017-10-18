@@ -1,3 +1,20 @@
 .profilepic{
+  float:left;
+  margin-top:10px;
+  margin-left:20px;
+
+}
+
+.Profile{
+  width:70%;
   float:right;
+}
+
+.background{
+  background-color: #fff;
+
+}
+
+.posts{
+  margin-top:20px;
 }

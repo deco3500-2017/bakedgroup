@@ -94,7 +94,7 @@ class Feed extends Component{
             },
             {
             name: "Tom Brown",
-            Avatar:"https://images.unsplash.com/photo-1492307584978-94258bce90e7?dpr=1&auto=format&fit=crop&w=3150&h=&q=60&cs=tinysrgb&crop=",
+            avatar:"https://images.unsplash.com/photo-1492307584978-94258bce90e7?dpr=1&auto=format&fit=crop&w=3150&h=&q=60&cs=tinysrgb&crop=",
           },],
           timestamp: "4",
         },{

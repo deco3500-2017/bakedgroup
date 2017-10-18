@@ -31,6 +31,9 @@ class Post extends Component{
       description:props.description,
       attendees:props.attendees,
       currentUser: props.currentUser,
+      style:{
+        'font-size':'30pt'
+      }
     }
     this.joinPost = this.joinPost.bind(this);
   }
@@ -72,6 +75,7 @@ render(){
   <CardTitle
     title={this.state.title}
     subtitle= {this.state.difficulty}
+    titleStyle={this.style}
   />
   <CardText>{this.state.description}</CardText>
   <CardText>{this.state.date_time}</CardText>

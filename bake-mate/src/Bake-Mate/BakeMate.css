@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+
 .background{
   padding-bottom:20px;
   margin-top:0;
@@ -6,7 +9,7 @@
 }
 .AppBar{
   position: fixed;
-
+  font-family:'Pacifico' !important;
 }
 
 .Feed{

@@ -4,8 +4,11 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Feed from './Feed';
 
-
 import './HeaderComponent.css';
+
+var titleStyle = {
+  text-align:center;
+}
 
 class HeaderComponent extends Component
 {
@@ -24,6 +27,7 @@ class HeaderComponent extends Component
       <AppBar
       title="BakeMate"
       onLeftIconButtonTouchTap={this.handleToggle}
+      titleStyle={titleStyle}
       />
       <Drawer
       open={this.state.open}
