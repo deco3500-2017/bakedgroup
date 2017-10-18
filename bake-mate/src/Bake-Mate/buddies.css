@@ -1,0 +1,22 @@
+.buddiesList{
+  display:flex;
+  list-style-type: none;
+  justify-content: space-around;
+  padding: 0;
+  margin-bottom:0;
+  width:80vw;
+  margin-left:10vw;
+  margin-right:10vw;
+  flex-wrap:wrap;
+  align-content:flex-start;
+}
+.buddiesObject{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+}
+
+.nameText{
+  width:100%;
+  text-align:center;
+  }

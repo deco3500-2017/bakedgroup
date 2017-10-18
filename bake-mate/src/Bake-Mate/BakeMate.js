@@ -9,10 +9,10 @@ import Create_event from './Create_Event';
 import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
-import Login from './Login';
 import {login_status as getLogin} from './Login';
 
 import {init as firebaseInit} from './firebase';
+
 
 import './BakeMate.css';
 
@@ -24,7 +24,7 @@ class BakeMate extends Component{
    super(props);
    firebaseInit();
    this.state = {
-     login:false,
+     login:true,
      open: false,
      feed:true,
      messages:false,
@@ -35,7 +35,14 @@ class BakeMate extends Component{
      feedClass:"Feed",
      loginClass:"login_false",
      bodyClass:"hidden",
-     currentUser:""
+     currentUser:{
+       id: "11234",
+       username: "Jodie Green",
+       password: "TEST PASSWORD",
+       email:'jodiegreen@gmail.com',
+       avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/brian-chan-12168.jpg?alt=media&token=42a4d264-6b76-4279-a0bf-b42e8d921ff6",
+     },
+     pageTitle:"BakeMate"
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -58,7 +65,10 @@ class BakeMate extends Component{
     }else if(this.state.create_event){
       return(
     <div>
-      <Create_event className="Create_event" />
+      <Create_event
+      className="Create_event"
+      currentUser={this.state.currentUser}
+       />
       </div>
       );
     }else if(this.state.buddies){
@@ -99,7 +109,8 @@ class BakeMate extends Component{
       buddies:false,
       profile:false,
       settings:false,
-      feedClass:"Feed"
+      feedClass:"Feed",
+      pageTitle:"BakeMate"
     });
   }
 
@@ -112,7 +123,9 @@ class BakeMate extends Component{
       buddies:false,
       profile:false,
       settings:false,
-      feedClass:"hideFeed"
+      feedClass:"hideFeed",
+      pageTitle:"Messages"
+
 
     });
   }
@@ -126,7 +139,8 @@ class BakeMate extends Component{
       buddies:false,
       profile:false,
       settings:false,
-      feedClass:"hideFeed"
+      feedClass:"hideFeed",
+      pageTitle:"Create Event"
 
     });
   }
@@ -140,7 +154,9 @@ class BakeMate extends Component{
         buddies:true,
         profile:false,
         settings:false,
-        feedClass:"hideFeed"
+        feedClass:"hideFeed",
+        pageTitle:"Buddies"
+
 
       });
     }
@@ -154,7 +170,9 @@ class BakeMate extends Component{
         buddies:false,
         profile:true,
         settings:false,
-        feedClass:"hideFeed"
+        feedClass:"hideFeed",
+        pageTitle:"Profile"
+
 
       });
     }
@@ -168,8 +186,8 @@ class BakeMate extends Component{
         buddies:false,
         profile:false,
         settings:true,
-        feedClass:"hideFeed"
-
+        feedClass:"hideFeed",
+        pageTitle:"Settings"
       });
     }
 
@@ -190,9 +208,8 @@ class BakeMate extends Component{
       });
     }
 
-    getUsername(username){
-      this.setState({currentUser:username}, () => {
-        console.log(this.state.currentUser);
+    getUser(user){
+      this.setState({currentUser:user}, () => {
       });
 
     }
@@ -200,17 +217,10 @@ class BakeMate extends Component{
   render(){
     return(
         <div className="BakeMate">
-        <div className={this.state.loginClass}>
-        <Login
-        login={this.state.login}
-        callbackParent={(login) => this.checkLogin(login)}
-        getUserName = {(username) => this.getUsername(username)}
 
-        />
-        </div>
         <div className={this.state.bodyClass}>
           <AppBar
-            title="BakeMate"
+            title={this.state.pageTitle}
             onLeftIconButtonTouchTap={this.handleToggle}
             className="AppBar"
             />
@@ -227,7 +237,8 @@ class BakeMate extends Component{
                 <MenuItem onClick={this.changetoMessage} id="Messages">Messages</MenuItem>
                 <MenuItem onClick={this.changetoCreate_event} id="Create_Event">Create Event</MenuItem>
                 <MenuItem onClick={this.changetoBuddies} id="Buddies">Buddies</MenuItem>
-                <MenuItem onClick={this.changetoProfile} id="Profile">Profile</MenuItem>
+                <MenuItem onClick={this.changetoProfile} id="Profile">
+                Profile</MenuItem>
                 <MenuItem onClick={this.changetoSettings} id="Settings">Settings</MenuItem>
               </Menu>
             </Drawer>
@@ -235,7 +246,10 @@ class BakeMate extends Component{
         <div className="background">
           {this.activePage()}
           <div className={this.state.feedClass}>
-          <Feed className="Feed"/>
+          <Feed
+          currentUser={this.state.currentUser}
+          className="Feed"
+          />
           </div>
           </div>
         </div>
