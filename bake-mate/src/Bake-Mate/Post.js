@@ -6,6 +6,7 @@ import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
+import Mood from 'material-ui/svg-icons/social/mood';
 
 
 import './Feed.css';
@@ -34,20 +35,36 @@ class Post extends Component{
       style:{
         'font-size':'30pt'
       },
-      button:props.button
+      button:props.button,
+      attending:false
     }
     this.joinPost = this.joinPost.bind(this);
+    this.exitPost = this.exitPost.bind(this);
   }
 
   togglePost = () => this.setState({open: !this.state.open});
 
   joinPost(){
+    this.setState({
+      attending:true,
+      button:false,
+     });
     var list = this.state.attendees;
     var newUser = {
       name:this.state.currentUser.username,
       avatar: this.state.currentUser.avatar
     }
     list.push(newUser);
+    this.forceUpdate();
+  }
+
+  exitPost(){
+    this.setState({
+      attending:false,
+      button:true
+    })
+    var list = this.state.attendees;
+    list.splice(-1,1);
     this.forceUpdate();
   }
 
@@ -68,7 +85,7 @@ render(){
       >
       <ExpandLess/>
       </IconButton>
-    }
+        }
     />
   <CardMedia>
     <img src={this.state.image} alt=""/>
@@ -118,7 +135,6 @@ render(){
         onClick={this.togglePost}
         className="IconButton"
         >
-
         <ExpandLess/>
         </IconButton>
       }
@@ -147,9 +163,48 @@ render(){
       )}
       </ul>
       </CardText>
+      <CardActions>
+        <FlatButton
+          fullWidth={true}
+          label="Stop Attending"
+          onClick={this.exitPost}
+        />
+        </CardActions>
     </Card>
     )
   }
+  }else{
+    if(this.state.attending){
+    return(
+      <Card
+        className="Standard-Post"
+        key={this.state.id}>
+      <CardHeader
+      title={this.state.host}
+      avatar={this.state.hostAvatar}
+      children={
+        <IconButton
+        className="IconButton"
+        >
+        <Mood/>
+        </IconButton>
+        }
+        />
+      <CardMedia>
+        <img src={this.state.image} alt=""/>
+      </CardMedia>
+      <CardTitle
+        title={this.state.title}
+      />
+      <CardActions>
+        <FlatButton
+          fullWidth={true}
+          icon={<ExpandMore/>}
+          onClick={this.togglePost}
+        />
+        </CardActions>
+        </Card>
+    )
   }else{
     return(
       <Card
@@ -158,22 +213,24 @@ render(){
       <CardHeader
       title={this.state.host}
       avatar={this.state.hostAvatar}
+
       />
-    <CardMedia>
-      <img src={this.state.image} alt=""/>
-    </CardMedia>
-    <CardTitle
-      title={this.state.title}
-    />
-    <CardActions>
-      <FlatButton
-        fullWidth={true}
-        icon={<ExpandMore/>}
-        onClick={this.togglePost}
+      <CardMedia>
+        <img src={this.state.image} alt=""/>
+      </CardMedia>
+      <CardTitle
+        title={this.state.title}
       />
-    </CardActions>
-    </Card>
+      <CardActions>
+        <FlatButton
+          fullWidth={true}
+          icon={<ExpandMore/>}
+          onClick={this.togglePost}
+        />
+      </CardActions>
+      </Card>
     )
+  }
   }
 }
 
