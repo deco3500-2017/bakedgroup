@@ -12,6 +12,7 @@ class Feed extends Component{
       super(props);
       this.state = {
         currentUser: props.currentUser,
+		upcoming: false,
         posts: [
 
         {
@@ -114,10 +115,59 @@ class Feed extends Component{
 
           }
         ],
+		relatedPosts: [],
+
     }; // <- set up react state
+	this.changetoUpcoming = this.changetoUpcoming.bind(this);
+	this.changetoNormal = this.changetoNormal.bind(this);
     }
 
+	changetoUpcoming(){
+		var related = [];
+		var posts = this.state.posts;
+		
+		for (let p in posts){
+			let contains = false;
+			for (let a in posts[p].attendees){
+				var attendees = posts[p].attendees;
+				if (attendees[a].name == this.state.currentUser.username){
+					contains = true;
+				}
+			}
+			if (posts[p].host == this.state.currentUser.username || contains == true){
+				related.push(posts[p]);
+			}
+		}
+		this.setState({
+			upcoming: true,
+			relatedPosts: related
+		});
+	}
+	changetoNormal(){
+		this.setState({
+			upcoming: false
+		});
+	}
+	
     componentDidMount(){
+		var related = [];
+		var posts = this.state.posts;
+		
+		for (let p in posts){
+			let contains = false;
+			for (let a in posts[p].attendees){
+				var attendees = posts[p].attendees;
+				if (attendees[a].name == this.state.currentUser.username){
+					contains = true;
+				}
+			}
+			if (posts[p].host == this.state.currentUser.username || contains == true){
+				related.push(posts[p]);
+			}
+		}
+		this.setState({
+			relatedPosts: related
+		});
       /* Create reference to messages in Firebase Database */
 
     /*
@@ -146,32 +196,71 @@ class Feed extends Component{
 
 
   render(){
-    return(
-      <div className="postBox">
-          { /* Render the list of messages */
-            this.state.posts.map( post =>
-              <Post
-                currentUser={this.state.currentUser}
-                key={post.id}
-                id={post.id}
-                host={post.host}
-                avatar={post.avatar}
-                image={post.image}
-                title={post.title}
-                difficulty={post.difficulty}
-                date_time={post.date_time}
-                description={post.description}
-                attendees={post.attendees}
-                timestamp={post.timestamp}
-                button={true}
-                profile={false}
+	if (this.state.upcoming == true){
+	  return(
+		<div>
+		<div>
+		  <div className="upcoming" onClick={this.changetoNormal} id="all">All Events</div>
+		  <div className="upcoming selected" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
+		</div>  
+		  <div className="postBox">
+            { /* Render the list of messages */
+              this.state.relatedPosts.map( post =>
+                <Post
+                  currentUser={this.state.currentUser}
+                  key={post.id}
+                  id={post.id}
+                  host={post.host}
+                  avatar={post.avatar}
+                  image={post.image}
+                  title={post.title}
+                  difficulty={post.difficulty}
+                  date_time={post.date_time}
+                  description={post.description}
+                  attendees={post.attendees}
+                  timestamp={post.timestamp}
+                  button={true}
+                  profile={false}
+  
+                /> )
 
-              /> )
+            }
+          </div>
+		</div>
+	  );
+	} else {
+		  return(
+		<div>
+		<div>
+		  <div className="upcoming selected" onClick={this.changetoNormal} id="all">All Events</div>
+		  <div className="upcoming" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
+		</div>
+		  <div className="postBox">
+            { /* Render the list of messages */
+              this.state.posts.map( post =>
+                <Post
+                  currentUser={this.state.currentUser}
+                  key={post.id}
+                  id={post.id}
+                  host={post.host}
+                  avatar={post.avatar}
+                  image={post.image}
+                  title={post.title}
+                  difficulty={post.difficulty}
+                  date_time={post.date_time}
+                  description={post.description}
+                  attendees={post.attendees}
+                  timestamp={post.timestamp}
+                  button={true}
+                  profile={false}
+  
+                /> )
 
-          }
-      </div>
-    );
-
+            }
+          </div>
+		</div>
+	  );
+	}
   }
 
   getInfo(){

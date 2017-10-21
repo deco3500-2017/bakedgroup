@@ -33,3 +33,19 @@
   position:relative;
   float:right;
 }
+
+.upcoming{
+	width: 50%;
+	height: 40px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 15px;
+}
+	
+
+.selected{
+	background-color: #45cbde;
+	color: white;
+	text-decoration: bold;
+}
