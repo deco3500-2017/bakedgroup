@@ -6,3 +6,46 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.Conversation{
+  background-color: #fff;
+  border-bottom:1px solid #efefef;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:20px;
+  display:flex;
+  flex-direction:row;
+
+}
+
+.info{
+  display:flex;
+  flex-direction:column;
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.name_unread{
+  margin:0;
+  padding:0;
+  font-size:14pt;
+  font-weight:600;
+}
+.textunread{
+  margin:0;
+  margin-top:5px;
+  padding:0;
+
+}
+
+.name{
+  margin:0;
+  padding:0;
+  font-size:14pt;
+}
+.text{
+  margin:0;
+  margin-top:5px;
+  padding:0;
+  color:#a9a9a9;
+}

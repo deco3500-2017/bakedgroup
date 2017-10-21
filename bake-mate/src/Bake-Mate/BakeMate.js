@@ -40,7 +40,7 @@ class BakeMate extends Component{
        username: "Jodie Green",
        password: "TEST PASSWORD",
        email:'jodiegreen@gmail.com',
-       avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/brian-chan-12168.jpg?alt=media&token=42a4d264-6b76-4279-a0bf-b42e8d921ff6",
+       avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/allef-vinicius-151778.jpg?alt=media&token=cc49743a-983d-4166-a4e6-b1202ec845f4",
      },
      pageTitle:"BakeMate"
    };
