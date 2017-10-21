@@ -164,6 +164,8 @@ class Feed extends Component{
                 attendees={post.attendees}
                 timestamp={post.timestamp}
                 button={true}
+                profile={false}
+
               /> )
 
           }

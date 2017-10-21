@@ -69,6 +69,7 @@ class BakeMate extends Component{
       <Create_event
       className="Create_event"
       currentUser={this.state.currentUser}
+      addPost={(post) => this.addPost(post)}
        />
       </div>
       );
@@ -213,6 +214,10 @@ class BakeMate extends Component{
       this.setState({currentUser:user}, () => {
       });
 
+    }
+
+    addPost(post){
+      console.log(post);
     }
 
   render(){

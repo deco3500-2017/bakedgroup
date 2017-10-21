@@ -31,8 +31,7 @@ class Create_event extends Component{
   }
 
   send_event(){
-
-    addPost(this.state.title, this.state.host, this.state.avatar, this.state.image, this.state.difficulty, this.state.desc, this.state.attendees);
+    this.props.addPost(this.state.title, this.state.host, this.state.avatar, this.state.image, this.state.difficulty, this.state.desc, this.state.attendees);
   }
 
   changeTitle(e){
@@ -63,6 +62,11 @@ class Create_event extends Component{
           hintText="Description"
           onChange = {(e) => this.changeDesc(e)}
           value={this.state.desc}
+          />
+          <TextField
+          hintText="Difficulty"
+          onChange = {(e) => this.changeDifficulty(e)}
+          value={this.state.difficulty}
           />
           <ImagePreview
           useAvatar={false}

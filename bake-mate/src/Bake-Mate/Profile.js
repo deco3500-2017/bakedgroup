@@ -53,6 +53,8 @@ render(){
       attendees={this.state.attendees}
       timestamp="2"
       button={false}
+      attending={true}
+      profile={true}
       />
 
     </div>

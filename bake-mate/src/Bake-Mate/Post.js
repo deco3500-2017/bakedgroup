@@ -36,7 +36,8 @@ class Post extends Component{
         'font-size':'30pt'
       },
       button:props.button,
-      attending:false
+      attending:false,
+      profile:props.profile
     }
     this.joinPost = this.joinPost.bind(this);
     this.exitPost = this.exitPost.bind(this);
@@ -71,166 +72,212 @@ class Post extends Component{
 render(){
   if(this.state.open){
     if(this.state.button){
-  return(
-    <Card
-      className="Expanded-Post"
-      key={this.state.id}>
-    <CardHeader
-    title={this.state.host}
-    avatar={this.state.hostAvatar}
-    children = {
-      <IconButton
-      onClick={this.togglePost}
-      className="IconButton"
-      >
-      <ExpandLess/>
-      </IconButton>
-        }
-    />
-  <CardMedia>
-    <img src={this.state.image} alt=""/>
-  </CardMedia>
-  <CardTitle
-    title={this.state.title}
-    subtitle= {this.state.difficulty}
-    titleStyle={this.style}
-  />
-  <CardText>{this.state.description}</CardText>
-  <CardText>{this.state.date_time}</CardText>
-  <CardText><strong>Attendees:</strong>
-  <ul className="attendeesList">
-    {this.state.attendees.map( attendee =>
-      <li className="attendeesObject" key={attendee.name}>
-        <Avatar
-          className="avatar"
-          src={attendee.avatar}
-          size={50}
+      return(
+        <Card
+          className="Expanded-Post"
+          key={this.state.id}>
+        <CardHeader
+        title={this.state.host}
+        avatar={this.state.hostAvatar}
+        children = {
+          <IconButton
+          onClick={this.togglePost}
+          className="IconButton"
+          >
+          <ExpandLess/>
+          </IconButton>
+            }
         />
-        <p>{attendee.name}</p>
-        </li>
-    )}
-    </ul>
-    </CardText>
-    <CardActions>
-      <RaisedButton
-        label="join"
-        backgroundColor="#26c6da"
-        fullWidth={true}
-        labelStyle={buttonStyle}
-        onClick={this.joinPost}
+      <CardMedia>
+        <img src={this.state.image} alt=""/>
+      </CardMedia>
+      <CardTitle
+        title={this.state.title}
+        subtitle= {this.state.difficulty}
+        titleStyle={this.style}
       />
-    </CardActions>
-  </Card>
-    )
+      <CardText>{this.state.description}</CardText>
+      <CardText>{this.state.date_time}</CardText>
+      <CardText><strong>Attendees:</strong>
+      <ul className="attendeesList">
+        {this.state.attendees.map( attendee =>
+          <li className="attendeesObject" key={attendee.name}>
+            <Avatar
+              className="avatar"
+              src={attendee.avatar}
+              size={50}
+            />
+            <p>{attendee.name}</p>
+            </li>
+        )}
+        </ul>
+        </CardText>
+        <CardActions>
+          <RaisedButton
+            label="join"
+            backgroundColor="#26c6da"
+            fullWidth={true}
+            labelStyle={buttonStyle}
+            onClick={this.joinPost}
+          />
+        </CardActions>
+      </Card>
+        )
+      }else{
+    if(this.state.profile){
+      return(
+        <Card
+          className="Expanded-Post"
+          key={this.state.id}>
+        <CardHeader
+        title={this.state.host}
+        avatar={this.state.hostAvatar}
+        children = {
+          <IconButton
+          onClick={this.togglePost}
+          className="IconButton"
+          >
+          <ExpandLess/>
+          </IconButton>
+        }
+        />
+      <CardMedia>
+        <img src={this.state.image} alt=""/>
+      </CardMedia>
+      <CardTitle
+        title={this.state.title}
+        subtitle= {this.state.difficulty}
+        titleStyle={this.style}
+      />
+      <CardText>{this.state.description}</CardText>
+      <CardText>{this.state.date_time}</CardText>
+      <CardText><strong>Attendees:</strong>
+      <ul className="attendeesList">
+        {this.state.attendees.map( attendee =>
+          <li className="attendeesObject" key={attendee.name}>
+            <Avatar
+              className="avatar"
+              src={attendee.avatar}
+              size={50}
+            />
+            <p>{attendee.name}</p>
+            </li>
+        )}
+        </ul>
+        </CardText>
+
+      </Card>
+      )
   }else{
     return(
-      <Card
-        className="Expanded-Post"
-        key={this.state.id}>
-      <CardHeader
-      title={this.state.host}
-      avatar={this.state.hostAvatar}
-      children = {
-        <IconButton
-        onClick={this.togglePost}
-        className="IconButton"
-        >
-        <ExpandLess/>
-        </IconButton>
-      }
-      />
-    <CardMedia>
-      <img src={this.state.image} alt=""/>
-    </CardMedia>
-    <CardTitle
-      title={this.state.title}
-      subtitle= {this.state.difficulty}
-      titleStyle={this.style}
-    />
-    <CardText>{this.state.description}</CardText>
-    <CardText>{this.state.date_time}</CardText>
-    <CardText><strong>Attendees:</strong>
-    <ul className="attendeesList">
-      {this.state.attendees.map( attendee =>
-        <li className="attendeesObject" key={attendee.name}>
-          <Avatar
-            className="avatar"
-            src={attendee.avatar}
-            size={50}
+          <Card
+            className="Expanded-Post"
+            key={this.state.id}>
+          <CardHeader
+          title={this.state.host}
+          avatar={this.state.hostAvatar}
+          children = {
+            <IconButton
+            onClick={this.togglePost}
+            className="IconButton"
+            >
+            <ExpandLess/>
+            </IconButton>
+          }
           />
-          <p>{attendee.name}</p>
-          </li>
-      )}
-      </ul>
-      </CardText>
-      <CardActions>
-        <FlatButton
-          fullWidth={true}
-          label="Stop Attending"
-          onClick={this.exitPost}
+        <CardMedia>
+          <img src={this.state.image} alt=""/>
+        </CardMedia>
+        <CardTitle
+          title={this.state.title}
+          subtitle= {this.state.difficulty}
+          titleStyle={this.style}
         />
-        </CardActions>
-    </Card>
-    )
+        <CardText>{this.state.description}</CardText>
+        <CardText>{this.state.date_time}</CardText>
+        <CardText><strong>Attendees:</strong>
+        <ul className="attendeesList">
+          {this.state.attendees.map( attendee =>
+            <li className="attendeesObject" key={attendee.name}>
+              <Avatar
+                className="avatar"
+                src={attendee.avatar}
+                size={50}
+              />
+              <p>{attendee.name}</p>
+              </li>
+          )}
+          </ul>
+          </CardText>
+          <CardActions>
+            <FlatButton
+              fullWidth={true}
+              label="Stop Attending"
+              onClick={this.exitPost}
+            />
+            </CardActions>
+        </Card>
+        )
+      }
   }
   }else{
     if(this.state.attending){
-    return(
-      <Card
-        className="Standard-Post"
-        key={this.state.id}>
-      <CardHeader
-      title={this.state.host}
-      avatar={this.state.hostAvatar}
-      children={
-        <IconButton
-        className="IconButton"
-        >
-        <Mood/>
-        </IconButton>
-        }
-        />
-      <CardMedia>
-        <img src={this.state.image} alt=""/>
-      </CardMedia>
-      <CardTitle
-        title={this.state.title}
-      />
-      <CardActions>
-        <FlatButton
-          fullWidth={true}
-          icon={<ExpandMore/>}
-          onClick={this.togglePost}
-        />
-        </CardActions>
-        </Card>
-    )
-  }else{
-    return(
-      <Card
-        className="Standard-Post"
-        key={this.state.id}>
-      <CardHeader
-      title={this.state.host}
-      avatar={this.state.hostAvatar}
+        return(
+          <Card
+            className="Standard-Post"
+            key={this.state.id}>
+          <CardHeader
+          title={this.state.host}
+          avatar={this.state.hostAvatar}
+          children={
+            <IconButton
+            className="IconButton"
+            >
+            <Mood/>
+            </IconButton>
+            }
+            />
+          <CardMedia>
+            <img src={this.state.image} alt=""/>
+          </CardMedia>
+          <CardTitle
+            title={this.state.title}
+          />
+          <CardActions>
+            <FlatButton
+              fullWidth={true}
+              icon={<ExpandMore/>}
+              onClick={this.togglePost}
+            />
+            </CardActions>
+            </Card>
+        )
+      }else{
+        return(
+          <Card
+            className="Standard-Post"
+            key={this.state.id}>
+          <CardHeader
+          title={this.state.host}
+          avatar={this.state.hostAvatar}
 
-      />
-      <CardMedia>
-        <img src={this.state.image} alt=""/>
-      </CardMedia>
-      <CardTitle
-        title={this.state.title}
-      />
-      <CardActions>
-        <FlatButton
-          fullWidth={true}
-          icon={<ExpandMore/>}
-          onClick={this.togglePost}
-        />
-      </CardActions>
-      </Card>
-    )
-  }
+          />
+          <CardMedia>
+            <img src={this.state.image} alt=""/>
+          </CardMedia>
+          <CardTitle
+            title={this.state.title}
+          />
+          <CardActions>
+            <FlatButton
+              fullWidth={true}
+              icon={<ExpandMore/>}
+              onClick={this.togglePost}
+            />
+          </CardActions>
+          </Card>
+        )
+    }
   }
 }
 
