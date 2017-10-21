@@ -42,7 +42,8 @@ class BakeMate extends Component{
        email:'jodiegreen@gmail.com',
        avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/allef-vinicius-151778.jpg?alt=media&token=cc49743a-983d-4166-a4e6-b1202ec845f4",
      },
-     pageTitle:"BakeMate"
+     pageTitle:"BakeMate",
+     version:"0.1",
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -230,9 +231,7 @@ class BakeMate extends Component{
               onRequestChange={this.handleToggle}
               onItemTouchTap={this.handleToggle}
               >
-              <Menu
-
-                >
+              <Menu>
                 <MenuItem onClick={this.changetoHome} id="Home">Home</MenuItem>
                 <MenuItem onClick={this.changetoMessage} id="Messages">Messages</MenuItem>
                 <MenuItem onClick={this.changetoCreate_event} id="Create_Event">Create Event</MenuItem>
@@ -241,6 +240,7 @@ class BakeMate extends Component{
                 Profile</MenuItem>
                 <MenuItem onClick={this.changetoSettings} id="Settings">Settings</MenuItem>
               </Menu>
+              <p className="version">version: {this.state.version}</p>
             </Drawer>
 
         <div className="background">
