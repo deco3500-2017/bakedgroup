@@ -43,7 +43,7 @@ class BakeMate extends Component{
        avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/allef-vinicius-151778.jpg?alt=media&token=cc49743a-983d-4166-a4e6-b1202ec845f4",
      },
      pageTitle:"BakeMate",
-     version:"0.1",
+     version:"0.2",
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
