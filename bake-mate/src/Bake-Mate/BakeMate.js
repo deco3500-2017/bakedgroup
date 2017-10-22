@@ -9,10 +9,6 @@ import Create_event from './Create_Event';
 import Buddies from './Buddies';
 import Profile from './Profile';
 import Settings from './Settings';
-import {login_status as getLogin} from './Login';
-
-import {init as firebaseInit} from './firebase';
-
 
 import './BakeMate.css';
 
@@ -22,7 +18,6 @@ class BakeMate extends Component{
 
   constructor(props) {
    super(props);
-   firebaseInit();
    this.state = {
      login:true,
      open: false,
@@ -44,6 +39,7 @@ class BakeMate extends Component{
      },
      pageTitle:"BakeMate",
      version:"0.2",
+     post: []
    };
    this.changetoHome = this.changetoHome.bind(this);
    this.changetoMessage = this.changetoMessage.bind(this);
@@ -56,6 +52,13 @@ class BakeMate extends Component{
 
   activePage(){
     if (this.state.feed){
+      return(
+      <Feed
+      currentUser={this.state.currentUser}
+      className="Feed"
+      post={this.state.post}
+      />
+    );
 
     }else if(this.state.messages){
       return(
@@ -195,19 +198,9 @@ class BakeMate extends Component{
 
     componentDidMount(){
 
-      if(this.state.login){
-        this.setState({loginClass:"login_true", bodyClass:""}, () => {
-          console.log(this.state.bodyClass);
-        });
-      }
-
     }
 
     checkLogin(){
-
-      this.setState({login:true});
-      this.setState({loginClass:"login_true", bodyClass:""}, () => {
-      });
     }
 
     getUser(user){
@@ -217,14 +210,17 @@ class BakeMate extends Component{
     }
 
     addPost(post){
-      console.log(post);
+      var statepost = this.state.post;
+      statepost.push(post);
+      this.setState({post:statepost}, () => {
+        console.log(this.state.post)
+      });
     }
 
   render(){
     return(
         <div className="BakeMate">
-
-        <div className={this.state.bodyClass}>
+        <div>
           <AppBar
             title={this.state.pageTitle}
             onLeftIconButtonTouchTap={this.handleToggle}
@@ -234,7 +230,6 @@ class BakeMate extends Component{
               open={this.state.open}
               docked={false}
               onRequestChange={this.handleToggle}
-              onItemTouchTap={this.handleToggle}
               >
               <Menu>
                 <MenuItem onClick={this.changetoHome} id="Home">Home</MenuItem>
@@ -248,14 +243,8 @@ class BakeMate extends Component{
               <p className="version">version: {this.state.version}</p>
             </Drawer>
 
-        <div className="background">
-          {this.activePage()}
-          <div className={this.state.feedClass}>
-          <Feed
-          currentUser={this.state.currentUser}
-          className="Feed"
-          />
-          </div>
+          <div className="background">
+            {this.activePage()}
           </div>
         </div>
     </div>

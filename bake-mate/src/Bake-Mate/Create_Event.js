@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {addPost as addPost} from './firebase';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import ImagePreview from './Image_Preview';
 import './Create_Event.css';
 
 var string: "";
@@ -18,9 +16,8 @@ class Create_event extends Component{
      picture:"",
      difficulty:"",
      avatar:props.currentUser.avatar,
-     image:"",
+     image:"https://images.unsplash.com/photo-1464652149449-f3b8538144aa?dpr=1&auto=format&fit=crop&w=3150&h=&q=60&cs=tinysrgb&crop=",
      title:"",
-     difficulty:"",
      attendees:"",
    }
 
@@ -31,7 +28,23 @@ class Create_event extends Component{
   }
 
   send_event(){
-    this.props.addPost(this.state.title, this.state.host, this.state.avatar, this.state.image, this.state.difficulty, this.state.desc, this.state.attendees);
+    var post = {
+      id:this.state.title,
+      title: this.state.title,
+      host: this.state.host,
+      avatar: this.state.avatar,
+      image: this.state.image,
+      difficulty:this.state.difficulty,
+      description: this.state.desc,
+      attendees: [{
+        name:this.state.host,
+        avatar:this.state.avatar
+      }],
+      attending:true,
+      profile:true,
+    }
+
+    this.props.addPost(post);
   }
 
   changeTitle(e){
@@ -68,10 +81,6 @@ class Create_event extends Component{
           onChange = {(e) => this.changeDifficulty(e)}
           value={this.state.difficulty}
           />
-          <ImagePreview
-          useAvatar={false}
-          getImage = {(image) => this.getImage(image)}
-          />
           <FlatButton
           onClick={this.send_event}
           label="Create Event"
@@ -80,7 +89,7 @@ class Create_event extends Component{
         </div>
       </div>
     );
-  }
 
+}
 }
 export default Create_event;

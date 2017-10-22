@@ -27,7 +27,7 @@ class Post extends Component{
       hostAvatar: props.avatar,
       image:props.image,
       title:props.title,
-      difficulty:props.difficulty,
+      difficulty:"Difficulty: " + props.difficulty + "/5",
       date_time:props.date_time,
       description:props.description,
       attendees:props.attendees,

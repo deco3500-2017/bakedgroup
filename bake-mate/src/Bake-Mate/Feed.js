@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import {getpostsDB as getPosts} from './firebase';
-import * as firebase from 'firebase';
 import Post from './Post';
 import './Feed.css';
 
@@ -116,6 +114,7 @@ class Feed extends Component{
           }
         ],
 		relatedPosts: [],
+    post: props.post
 
     }; // <- set up react state
 	this.changetoUpcoming = this.changetoUpcoming.bind(this);
@@ -125,16 +124,16 @@ class Feed extends Component{
 	changetoUpcoming(){
 		var related = [];
 		var posts = this.state.posts;
-		
+
 		for (let p in posts){
 			let contains = false;
 			for (let a in posts[p].attendees){
 				var attendees = posts[p].attendees;
-				if (attendees[a].name == this.state.currentUser.username){
+				if (attendees[a].name === this.state.currentUser.username){
 					contains = true;
 				}
 			}
-			if (posts[p].host == this.state.currentUser.username || contains == true){
+			if (posts[p].host === this.state.currentUser.username || contains === true){
 				related.push(posts[p]);
 			}
 		}
@@ -143,130 +142,112 @@ class Feed extends Component{
 			relatedPosts: related
 		});
 	}
+
 	changetoNormal(){
 		this.setState({
 			upcoming: false
 		});
 	}
-	
-    componentDidMount(){
-		var related = [];
-		var posts = this.state.posts;
-		
-		for (let p in posts){
-			let contains = false;
-			for (let a in posts[p].attendees){
-				var attendees = posts[p].attendees;
-				if (attendees[a].name == this.state.currentUser.username){
-					contains = true;
-				}
-			}
-			if (posts[p].host == this.state.currentUser.username || contains == true){
-				related.push(posts[p]);
-			}
-		}
-		this.setState({
-			relatedPosts: related
-		});
-      /* Create reference to messages in Firebase Database */
 
-    /*
-      let postsRef = firebase.database().ref('/posts/').orderByKey().limitToLast(100);
-      postsRef.on('child_added', snapshot => {
-        let post = {
-          key: snapshot.id,
-          id: snapshot.id,
-          title: snapshot.title,
-          host: snapshot.host,
-          avatar: snapshot.avatar,
-          image: snapshot.image,
-          difficulty: snapshot.difficulty,
-          description: snapshot.description,
-          attendees: snapshot.attendees,
-          timestamp: snapshot.timestamp
-        };
-        this.setState({ posts: [post].concat(this.state.posts) });
-        console.log(this.state.posts);
+  componentDidMount(){
+  		var related = [];
+  		var posts = this.state.posts;
 
-      });
+      console.log(this.state.post)
+      for(let p in this.state.post){
+        console.log(this.state.post[p]);
+        posts.unshift(this.state.post[p]);
+      }
 
-      */
+  		for (let p in posts){
+  			let contains = false;
+  			for (let a in posts[p].attendees){
+  				var attendees = posts[p].attendees;
+  				if (attendees[a].name === this.state.currentUser.username){
+  					contains = true;
+  				}
+  			}
+  			if (posts[p].host === this.state.currentUser.username || contains === true){
+  				related.push(posts[p]);
+  			}
+  		}
+  		this.setState({
+  			relatedPosts: related
+  		});
+
+
+
+
     }
 
 
 
   render(){
-	if (this.state.upcoming == true){
-	  return(
-		<div>
-		<div>
-		  <div className="upcoming" onClick={this.changetoNormal} id="all">All Events</div>
-		  <div className="upcoming selected" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
-		</div>  
-		  <div className="postBox">
-            { /* Render the list of messages */
-              this.state.relatedPosts.map( post =>
-                <Post
-                  currentUser={this.state.currentUser}
-                  key={post.id}
-                  id={post.id}
-                  host={post.host}
-                  avatar={post.avatar}
-                  image={post.image}
-                  title={post.title}
-                  difficulty={post.difficulty}
-                  date_time={post.date_time}
-                  description={post.description}
-                  attendees={post.attendees}
-                  timestamp={post.timestamp}
-                  button={true}
-                  profile={false}
-  
-                /> )
+  	if (this.state.upcoming === true){
+  	  return(
+  		<div>
+  		<div>
+  		  <div className="upcoming" onClick={this.changetoNormal} id="all">All Events</div>
+  		  <div className="upcoming selected" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
+  		</div>
+  		  <div className="postBox">
+              { /* Render the list of messages */
+                this.state.relatedPosts.map( post =>
+                  <Post
+                    currentUser={this.state.currentUser}
+                    key={post.id}
+                    host={post.host}
+                    avatar={post.avatar}
+                    image={post.image}
+                    title={post.title}
+                    difficulty={post.difficulty}
+                    date_time={post.date_time}
+                    description={post.description}
+                    attendees={post.attendees}
+                    timestamp={post.timestamp}
+                    button={true}
+                    profile={false}
 
-            }
-          </div>
-		</div>
-	  );
-	} else {
-		  return(
-		<div>
-		<div>
-		  <div className="upcoming selected" onClick={this.changetoNormal} id="all">All Events</div>
-		  <div className="upcoming" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
-		</div>
-		  <div className="postBox">
-            { /* Render the list of messages */
-              this.state.posts.map( post =>
-                <Post
-                  currentUser={this.state.currentUser}
-                  key={post.id}
-                  id={post.id}
-                  host={post.host}
-                  avatar={post.avatar}
-                  image={post.image}
-                  title={post.title}
-                  difficulty={post.difficulty}
-                  date_time={post.date_time}
-                  description={post.description}
-                  attendees={post.attendees}
-                  timestamp={post.timestamp}
-                  button={true}
-                  profile={false}
-  
-                /> )
+                  /> )
 
-            }
-          </div>
-		</div>
-	  );
-	}
+              }
+            </div>
+  		</div>
+  	  );
+  	} else {
+  		  return(
+  		<div>
+  		<div>
+  		  <div className="upcoming selected" onClick={this.changetoNormal} id="all">All Events</div>
+  		  <div className="upcoming" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
+  		</div>
+  		  <div className="postBox">
+              { /* Render the list of messages */
+                this.state.posts.map( post =>
+                  <Post
+                    currentUser={this.state.currentUser}
+                    key={post.id}
+                    host={post.host}
+                    avatar={post.avatar}
+                    image={post.image}
+                    title={post.title}
+                    difficulty={post.difficulty}
+                    date_time={post.date_time}
+                    description={post.description}
+                    attendees={post.attendees}
+                    timestamp={post.timestamp}
+                    button={true}
+                    profile={false}
+
+                  /> )
+
+              }
+            </div>
+  		</div>
+  	  );
+  	}
   }
 
-  getInfo(){
-     getPosts();
-     setTimeout(2000);
-  }
 
   componentWillUnmount(){
     this.setState({

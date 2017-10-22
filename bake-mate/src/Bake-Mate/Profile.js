@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Avatar from 'material-ui/Avatar';
-import Feed from './Feed';
 import Post from './Post';
 
 
@@ -10,7 +9,6 @@ class Profile extends Component{
 
   constructor(props){
     super(props);
-    console.log(props)
     this.state = {
       currentUser: props.user,
       attendees:[{

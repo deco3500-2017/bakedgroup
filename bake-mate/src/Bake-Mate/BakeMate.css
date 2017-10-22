@@ -16,12 +16,6 @@
 
 }
 
-.hideFeed{
-  opacity:0;
-  overflow:hidden;
-  height:0vh;
-}
-
 h1{
   padding-left:10px;
 }
@@ -31,11 +25,7 @@ h1{
   overflow:hidden;
   height:0vh;
 }
-.hidden{
-  opacity:0;
-  overflow:hidden;
-  height:0vh;
-}
+
 
 .picture{
   overflow:hidden;
