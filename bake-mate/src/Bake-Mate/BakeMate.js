@@ -38,7 +38,7 @@ class BakeMate extends Component{
        avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/allef-vinicius-151778.jpg?alt=media&token=cc49743a-983d-4166-a4e6-b1202ec845f4",
      },
      pageTitle:"BakeMate",
-     version:"0.3",
+     version:"0.4",
      post: []
    };
    this.changetoHome = this.changetoHome.bind(this);
@@ -238,7 +238,6 @@ class BakeMate extends Component{
                 <MenuItem onClick={this.changetoBuddies} id="Buddies">Buddies</MenuItem>
                 <MenuItem onClick={this.changetoProfile} id="Profile">
                 Profile</MenuItem>
-                <MenuItem onClick={this.changetoSettings} id="Settings">Settings</MenuItem>
               </Menu>
               <p className="version">version: {this.state.version}</p>
             </Drawer>

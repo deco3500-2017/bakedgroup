@@ -24,6 +24,9 @@ class Buddies extends Component
     },{
         name: "Tom Brown",
         avatar:"https://images.unsplash.com/photo-1492307584978-94258bce90e7?dpr=1&auto=format&fit=crop&w=3150&h=&q=60&cs=tinysrgb&crop=",
+      },{
+        name:"John Smith",
+        avatar: "https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/erik-lucatero-310633.jpg?alt=media&token=1b9b7396-4881-47fe-b3a7-97177cede48c"
       }]
     }
 

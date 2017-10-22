@@ -212,7 +212,7 @@ render(){
           <CardActions>
             <FlatButton
               fullWidth={true}
-              label="Stop Attending"
+              label="Leave Event"
               onClick={this.exitPost}
             />
             </CardActions>

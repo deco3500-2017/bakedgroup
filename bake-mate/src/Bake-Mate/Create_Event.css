@@ -1,7 +1,25 @@
 .Create_Event{
-  padding-left:10px;
+  padding-left:10vw;
   height:90vh;
+  width:80vw;
 }
 .link{
   font-weight:600;
+}
+.active{
+  max-width:20vw;
+
+}
+.inactive{
+  max-width:20vw;
+
+}
+
+.imagePreview{
+display: flex;
+flex-direction:row;
+}
+
+.currentImage{
+  max-width: 80vw;
 }

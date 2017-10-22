@@ -10,7 +10,7 @@ class Feed extends Component{
       super(props);
       this.state = {
         currentUser: props.currentUser,
-		upcoming: false,
+		     upcoming: false,
         posts: [
 
         {
@@ -96,7 +96,8 @@ class Feed extends Component{
             avatar:"https://images.unsplash.com/photo-1492307584978-94258bce90e7?dpr=1&auto=format&fit=crop&w=3150&h=&q=60&cs=tinysrgb&crop=",
           },],
           timestamp: "4",
-        },{
+        },
+        {
           id: "005",
           title: "Macarons",
           host: "Mac Ronnal",
@@ -155,7 +156,6 @@ class Feed extends Component{
 
       console.log(this.state.post)
       for(let p in this.state.post){
-        console.log(this.state.post[p]);
         posts.unshift(this.state.post[p]);
       }
 
@@ -174,10 +174,6 @@ class Feed extends Component{
   		this.setState({
   			relatedPosts: related
   		});
-
-
-
-
     }
 
 
@@ -187,8 +183,8 @@ class Feed extends Component{
   	  return(
   		<div>
   		<div>
-  		  <div className="upcoming" onClick={this.changetoNormal} id="all">All Events</div>
-  		  <div className="upcoming selected" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
+  		  <div className="upcoming selected" onClick={this.changetoNormal} id="all">All Events</div>
+  		  <div className="upcoming" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
   		</div>
   		  <div className="postBox">
               { /* Render the list of messages */
@@ -218,8 +214,8 @@ class Feed extends Component{
   		  return(
   		<div>
   		<div>
-  		  <div className="upcoming selected" onClick={this.changetoNormal} id="all">All Events</div>
-  		  <div className="upcoming" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
+  		  <div className="upcoming" onClick={this.changetoNormal} id="all">All Events</div>
+  		  <div className="upcoming selected" onClick={this.changetoUpcoming} id="Upcoming">Upcoming Events</div>
   		</div>
   		  <div className="postBox">
               { /* Render the list of messages */
