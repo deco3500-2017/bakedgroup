@@ -160,6 +160,7 @@ These changes can be seen integrated into the **[final design.](https://bake-mat
 
 * Conducted First Round of Testing
 * Conducted Second Round of Testing
+* Wrote User Test Protocol, Test Plans, & Testing Session Evaluations
 * Designed Promotional Poster, Pamphlet, & Logo
 * Presented on Demo Day
 
@@ -173,6 +174,7 @@ These changes can be seen integrated into the **[final design.](https://bake-mat
 
 * Conducted First Round of Testing
 * Conducted Second Round of Testing
+* Contributed to User Test Plans
 * Designed Promotional Poster, Pamphlet, & Logo
 
 **Ben Hooper**    
