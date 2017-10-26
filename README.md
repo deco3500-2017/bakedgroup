@@ -89,18 +89,22 @@ The second round of user testing involved using a preliminary prototype in the f
 
 The user testing protocol for this round of testing can be found below:
 
-User Testing Protocol
+**User Testing Protocol**
 
-The “you” in the following is the person that the group has selected to be the “tester”.
+    The “you” in the following is the person that the group has selected to be the “tester”.
 
-Preparation before participant arrives
-Prepare/lay out materials for the participant so that everything is ready.
+    Preparation before participant arrives
+    Prepare/lay out materials for the participant so that everything is ready.
 
-Introduction
-Introduce yourself to the participant and give them a high-level idea of what they will be doing in their tasks today, and what the application is about.
+    Introduction
+    Introduce yourself to the participant and give them a high-level idea of what they will be doing in their tasks today, and what the application is about.
 
-Instructions
-Give the participant more detailed instructions about the task they are to do (e.g. Create an event etc.). Tell them to take as long as they need to complete the task. Ask them to think out loud or to make comments as they work. See if there are any questions from the participants before you get started., and answer questions. Tell participant they can stop at any point and data received will not be used if they choose to stop.
+    Instructions
+    Give the participant more detailed instructions about the task they are to do (e.g. Create an event etc.).
+    Tell them to take as long as they need to complete the task.
+    Ask them to think out loud or to make comments as they work.
+    See if there are any questions from the participants before you get started, and answer questions.
+    Tell participant they can stop at any point and data received will not be used if they choose to stop.
 
     Observation task
 
@@ -134,7 +138,9 @@ Give the participant more detailed instructions about the task they are to do (e
 
     Closing
 
-    Tell the participant that the session is at an end. Thank the participant for their time, tell them that their data are valuable. Let participant know that they are free to go.
+    Tell the participant that the session is at an end.
+    Thank the participant for their time, tell them that their data are valuable.
+    Let participant know that they are free to go.
 
 Insights from this second round of testing were that user's struggled to understand at a glance the difference between different types of posts, and that there was no way to see if the current user was attending an event or not. To address both of these issues the final design streamlined the post type, with the previous three types of posts being restricted to a single type. Along with this, a visible indicator was added to events that the user is attending, and a filter added so the user can see only the events that they are attending.
 
