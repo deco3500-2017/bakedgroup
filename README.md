@@ -1,16 +1,49 @@
-# Baked Group Proposal
+# Bake-Mate
 
 ## Introduction
 
-Baking is a niche interest, and with most niche interests there is often a difficulty for those interested in learning connecting to those with the ability to teach them. Because of this difficulty, various tools are used to connect and learn, including Facebook groups, Meet-up groups, Blogs, and email lists. What is lacking is a tool that provides a platform that connects amateur and intermediate bakers who wish to attend classes and learn about baking with those who want to teach classes.                                                
+Baking is a niche interest, and with most niche interests there is often a difficulty for those interested in learning connecting to those with the ability to teach them. Because of this difficulty, various tools are used to connect and learn, including Facebook groups, Meet-up groups, Blogs, and email lists. What is lacking is a tool that provides a platform that connects people who want to bake together.                                    
 
-## Concept
+## Promotional Material
 
-The problem domain that is being approached is that of Active Communities, and to connect like minded individuals, in this case bakers who want to learn, with other bakers who wish to teach. The concept is a community driven application that allows users to choose between teaching and learning. Those who wish to learn can search for available classes and communicate with the teacher. Along with this they can RSVP to the class and add the class to their calendar.  Teachers can host a class on a particular baking style or recipe. These classes contain images, dates, times, available spots, current attendees, and detailed description of the course content. All class information can be viewed by both teachers and students.  Each class acts as an online forum, where users can post and communicate. The app also supports direct messaging between users, with a friends list viewable from the main page. 
 
-In order to encourage engagement in the community, the app will provide additional features that are valuable to the baking community in different contexts of use. Firstly, the ability to save recipes and work through them when later in the kitchen, checking off tasks when they complete them. When classes are attended, users are encouraged to post their results within the class forum, which benefits the user as they can share their work, and also the teacher as they have a source of potential future students to reach out to. These class forums act as a place where attendees can communicate with the teacher and each other.  The format, location, size, and formality of classes are up to the Teacher to set and clearly explain in the Class description. However, the app will primarily pitched and focused towards small intimate classes that help users develop skills in a micro community environment. To support this, once a class is completed, users can be paired with and continue contact with their teacher. 
+**Promotional Poster**
+<object data="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/PosterV2.pdf?alt=media&token=f64f5aaf-d5ef-47de-9c86-f0d646201267" type="application/pdf" width="700px" height="700px">
+    <embed src="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/PosterV2.pdf?alt=media&token=f64f5aaf-d5ef-47de-9c86-f0d646201267">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/PosterV2.pdf?alt=media&token=f64f5aaf-d5ef-47de-9c86-f0d646201267">Download PDF</a>.</p>
+    </embed>
+</object>
 
-Alternatively users can find someone of similar skill level and arrange a time to bake together. This allows users to meet new people with similar interests and learn together with them. It can also help users that may not have all the equipment find someone who does, and find out if it is worth investing in the proper equipment. Over time this will allow users to maintain a constent friendship and improve their baking skills, where they otherwise might not be interested as it takes a long time and could prove to be too difficult by themselves. 
+**Promotional Flyer**
+<object data="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/fixed%20.pdf?alt=media&token=c2a38efd-b914-419f-8995-cb643e60a6a5" type="application/pdf" width="700px" height="700px">
+    <embed src="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/fixed%20.pdf?alt=media&token=c2a38efd-b914-419f-8995-cb643e60a6a5">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="https://firebasestorage.googleapis.com/v0/b/bake-mate.appspot.com/o/fixed%20.pdf?alt=media&token=c2a38efd-b914-419f-8995-cb643e60a6a5">Download PDF</a>.</p>
+    </embed>
+</object>
+
+A link to the promotional Website can be found here:
+[Bake-Mate Promotional Website](https://bakedgroup.uqcloud.net/)
+
+A link to the initial prototype can be found here:
+[Adobe XD Prototype](https://xd.adobe.com/view/93d86849-dd37-4588-a3d0-780c89ee859b/)
+
+## Prototype
+
+A link to the final interactive prototype can be found here:
+[bake-mate.firebaseapp.com](https://bake-mate.firebaseapp.com)
+
+**Instructions**
+
+The Prototype is built to work on mobile devices, so it is only recommended that the user visits the webapp on a mobile device. The user can scroll through the feed and view and attend multiple events created by other users of the app. For testing purposes the user is the profile "Jodie Green" and can visit the messages, buddies, and profile page. The user can also create an event from the Create Event page, and see it show up in the feed.
+
+
+## Summary
+
+The problem domain that is being approached is that of Active Communities, and to connect like minded individuals, in this case bakers who want to learn, with other bakers who wish to teach. The concept is a community driven application that allows users to connect with other who share an interest for baking and want to bake together. Users can create an event based around what they would like to bake, and can include an image, description, the amount of people they would like to bake with, current attendees, and a difficulty level. The app also supports direct messaging between users, with a friends list viewable from the main page.
+
+In order to encourage engagement in the community, the app will provide additional features that are valuable to the baking community in different contexts of use. Firstly, the ability to save recipes and work through them when later in the kitchen, checking off tasks when they complete them.
+
+Users are able to can look through a list of posts that other members have made and join and contact the user who posted it. This allows users to meet new people with similar interests and learn together with them. It can also help users that may not have all the equipment find someone who does, and find out if it is worth investing in the proper equipment. Over time this will allow users to maintain a constant friendship and improve their baking skills, where they otherwise might not be interested as it takes a long time and could prove to be too difficult by themselves.
 
 **Project Aims:**
 
@@ -21,139 +54,128 @@ Alternatively users can find someone of similar skill level and arrange a time t
 
 **Audience**
 
-The audience for this application falls into four main demographics, depending on different skill levels and desire to learn or teach. For those who want to learn, there are those who are Amateur, and don't understand terminology related to baking and those who are semi-experienced, who do. Courses can be classed as amateur or semi-experienced based upon the expected knowledge and terminology used. For the Teachers, they are separated into individuals who are teaching by themselves, or accounts that are representing a company that runs a baking course.
+The audience for this application falls into four main demographics, depending on different skill levels and desire to learn or teach. For those who want to learn, there are those who are Amateur, and don't understand terminology related to baking and those who are semi-experienced, who do. Courses can be classed as amateur or semi-experienced based upon the expected knowledge and terminology used.
 
 
-**Current offerings or Similar designs**
+## Process
 
-Blogs
+Our Design process consisted of three main design iterations, each one iterating on itself using the feedback gained from testing sessions. The first round of user research that was conducted was aimed at gauging interest about the form of the app and what functions the target audience would deem appropriate to be a part of the app. Along with this, locating any issues that we hadn't considered that the target market could provide us with would be valuable.
 
-  - Blogs offer a good set of tools for sharing recipes, but doesn’t promote much communication between community members.
-  - Blogs are also separate to others and are relatively hard to find making it hard for users to search for specific recipes and experiences.
-  
-- Facebook Events
-  - Users can RSVP to events.
-  
-- Facebook Community Pages
-  - Like with blogs, Facebook doesn’t cater well to storing and searching for objects, making it difficult for people to find certain recipes they want.
-  - Also makes it difficult to have multiple different conversations/topics at once since they cannot be separated like forum posts/discussions can. 
-  
-- Forums
-  - Forums are either generalised into cooking forums or are to specific and only includes things such as bread baking
-  - Free to use
-  
-- Cooking Classes
-  - Costs money to attend and needs a big enough venue catered specifically for multiple people cooking in the same area. This also makes cooking classes a difficult business to start up from nothing.
-  
-- Meet-Up
-  - While it is fun to bake with a group of people and is an enjoyable experience with a small group, larger groups would need bigger venues with multiple cooking stations.
-  - can also be difficult to contact others who enjoy baking in the general area. The app could be used to schedule and set up these meetings
-  
-- Video Guides
-  - They are informative and generally free. Being able to integrate these into our app would benefit the users.
-  
-- General improvements
-  - Checklists for ingredients and steps in recipes
-                                         
-## Team 
+The research questions that were used for this round of testing are below:
+
+    Explain Concept Summary
+
+    Ask if anything is unclear
+
+    - if yes, follow up and clarify
+
+    What would you like to do while baking?
+
+    - if something unheard of, follow up
+
+    How many people do you think it would be fun with/practical to bake with?
+
+    - follow up for their goal baking partner number
+
+    What would you expect to be able to do in this app?
+
+    - follow up on any new ideas they may suggest
+
+This research provided several valuable insights. Prior to this research the application was primarily designed around the social interaction of a teacher to a student, with a secondary focus on peer to peer interaction. The events would take the form of classes with Teachers being able to indicate a price that the students pay in person when they arrive at their class.
+
+Research found that users were more interested in connecting with people that wanted to bake with them, instead of teachers.
+
+The second round of user testing involved using a preliminary prototype in the form of an **[Adobe XD Prototype.](https://xd.adobe.com/view/93d86849-dd37-4588-a3d0-780c89ee859b/)** This prototype was reasonably fleshed out and users were asked to accomplish several tasks to understand the usability and audience perception of the current design.
+
+The user testing protocol for this round of testing can be found below:
+
+User Testing Protocol
+
+The “you” in the following is the person that the group has selected to be the “tester”.
+
+Preparation before participant arrives
+Prepare/lay out materials for the participant so that everything is ready.
+
+Introduction
+Introduce yourself to the participant and give them a high-level idea of what they will be doing in their tasks today, and what the application is about.
+
+Instructions
+Give the participant more detailed instructions about the task they are to do (e.g. Create an event etc.). Tell them to take as long as they need to complete the task. Ask them to think out loud or to make comments as they work. See if there are any questions from the participants before you get started., and answer questions. Tell participant they can stop at any point and data received will not be used if they choose to stop.
+
+    Observation task
+
+    When participant is ready, ask the participant to start on the task:
+
+    Task 1: Find your profile.
+
+    Tasks 2: Which buddies are planning to bake cupcakes, and what are the event details?
+
+    Task 3: Create an Event
+
+    Task 4: What did you ask Samantha For?
+
+    Interview
+
+    Then ask leading questions to the participant after their performance.
+
+    Clarify anything needed.
+
+    Questions in a logical order:
+
+    - Talk me through what you did
+    - Identifying what tasks they did, and how they went about doing it (in their words)
+    - Was there any fields of information missing from the Events page?
+    - Was everything where you expected/easy to navigate?
+    - How would you change the layout
+    - Was they layout / colour visually appealing?
+    - Any additional feedback
+    -If participant has struggled anywhere, ask any relevant extra questions (and record them)
+    - Extra features to add or delete?
+
+    Closing
+
+    Tell the participant that the session is at an end. Thank the participant for their time, tell them that their data are valuable. Let participant know that they are free to go.
+
+Insights from this second round of testing were that user's struggled to understand at a glance the difference between different types of posts, and that there was no way to see if the current user was attending an event or not. To address both of these issues the final design streamlined the post type, with the previous three types of posts being restricted to a single type. Along with this, a visible indicator was added to events that the user is attending, and a filter added so the user can see only the events that they are attending.
+
+These changes can be seen integrated into the **[final design.](https://bake-mate.firebaseapp.com)**
+
+
+## Team
 
 **Nick MacArthur**
 
-Role: Team Leader
-Responsibilities: Determining tasks and allocating them, managing team progress and communication. Conflict resolution.
+* Conducted First Round of Testing
+* Developed Initial Prototype
+* Developed Final Prototype
+* Presented on Demo Day
 
 **Peter Ramsey**
 
-Role: Design
-Responsibilities: Designing user flow and hierarchy. Designing and conducting user testing sessions. Data Analysis.
+* Conducted First Round of Testing
+* Conducted Second Round of Testing
+* Designed Promotional Poster, Pamphlet, & Logo
+* Presented on Demo Day
 
 **Llewellyn Roydhouse**
 
-Role: Back End
-Responsibilities: Developing back end of application
+* Conducted First Round of Testing
+* Conducted Second Round of Testing
+* Contributed to Final Prototype Development
 
 **John Anderson**
 
-Role: Content
-Responsibilities: Creating visual content and designing User Interface. 
+* Conducted First Round of Testing
+* Conducted Second Round of Testing
+* Designed Promotional Poster, Pamphlet, & Logo
 
 **Ben Hooper**    
 
-Role: Front End 
-Responsibilities: Developing the front end of the application
+* Conducted First Round of Testing
+* Conducted Second Round of Testing
+* Developed Promotional Website
 
-**Decision Making**
 
-All devisions will be made as a group
-
-- They will be voted on through a majority voting system
-  - as our team has 5 members this system will work the best
-  - should an even split occur, the team will present their reasoning for their decision and try to persuade the other members on why their choice is the best path for the team.                                                                               
-
-**Communications**
-
-We will be meeting, in person, during our workshop (Wednesday 4-6pm) and practical sessions (Wednesday 11-1pm). We will primarily be conversing through slack for instant messaging, and discord for voice chat. We have chosen these social media platforms as it allows for easy and fast communication between members. This over time, we feel, will allow us to work as a group easily and promote clear communication within the group. Additionally we can pass files between both platforms, however slack will be the primary way we transfer files as it allows us to pin the latest version for others. Documents in progress will primarily be stored on google drive, with the link being passed through slack. This allows for us to work on the document at the same time without effecting each others work. Once a document is complete it will be transferred to Github. Naming convention will we adhere to is having our team name, Baked Group, followed by the appropriate file name (eg. bakedgroup_proposal.pdf).
-
-## Plan
-
-**Project Phase**
-
-- 2/9 - 7/9 Preliminary Research 
-- 8/9 - 12/9 Low-fidelity Digital Prototype Construction
-- 13/9 - 18/9 Low-fidelity Digital Prototype User Testing
-- 19/9 - 22/9 Collecting & Analysing User Testing
-- 23/9 - 3/10 High-fidelity Prototype Construction
-- 5/10 - 8/10 High-fidelity Digital Prototype User Testing
-- 9/10 - 12/10 Collecting & Analysing User Testing
-- 13/10 - 17/10 Implement Appropriate changes to Electronic Prototype
-- 19/10 - 27/10 Documentation
-
-**Research Methods**
-
-Interviews
-
-- Used to gather prelimenary data for which direction the application should go
-- First the applications idea will be explained, subsequent questions will be asked provided the person is willing to answer
-- Questions include:
-  - Do you underestand what the application is for?
-  - Would you rather use the application to find a class to join or someone to bake with?
-  - What do you expect to be able to do within the application?
-  - What would make you use the application (For both sides)?
-- As they respond, follow up questions to gain more information about what they are talking about will be asked
-
-Workshop
-
-- 4+ people
-- Split the room into teachers and learners
-- Run a set of tasks that require teachers to create a course for learners and learners sign on for the course
-- After the tasks are complete swap roles
-
-Ethnographic Studies
-
-Generic tasks participants will be asked to complete:
-
-- Create an account
-- Send a message
-- Sign-up for a class
-- Create teaching class/course
-
-**Test Plans** 
-
-Testing sessions will be held in a similar way for each stage of development, low-fidelity and high-fidelity digital prototypes. The session will be conducted by two group members, one to conduct the testing session and one to observe the user. This will allow for more information to be gained from a participant without stressing the conductor to do multiple tasks at once. We will be aiming for a minimum of 10 participants for each session, different participants each time, to give us a wide spread of users. We will be trying to find participants based upon our intended audience. This will require us to search for willing participants outside the UQ campus. 
-
-The testing session will start off by having the conduct explain to the user about the application and the overview of tasks they will need to complete. It will also be mentioned that they may leave at any point and their data will not be used. The participant will then complete a series of tasks, depending on the stage of development of the application, and asked to say what they are doing and why. During these tasks the observe will record the navigation and interactions the participant has with the application. For the low-fidelity prototype we will begin to look at how a user interacts with the application and how easy it is for them to navigate through the application. The high-fidelity prototype will test to see how the latest improvements changed the user experience, and to reconfirm any areas that participants felt satisfied with. 
-
-**Key deliverables**
-
-- Project proposal pitch - 30/8
-- Project proposal document - 1/9
-- Stand-ups - 13/9, 27/9 and the 18/10
-- Prototype Presentation - 27/10
-
-**Resources**
-
-- Adobe Creative Suite
-- Android Studio
 
 **Concept Tags**
 
@@ -166,5 +188,3 @@ The testing session will start off by having the conduct explain to the user abo
 **Domain Tag**
 
 - Active Community
-
-
