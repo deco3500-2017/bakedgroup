@@ -39,7 +39,7 @@ The Prototype is built to work on mobile devices, so it is only recommended that
 
 ## Summary
 
-The problem domain that is being approached is that of Active Communities, and to connect like minded individuals, in this case bakers who want to learn, with other bakers who wish to teach. The concept is a community driven application that allows users to connect with other who share an interest for baking and want to bake together. Users can create an event based around what they would like to bake, and can include an image, description, the amount of people they would like to bake with, current attendees, and a difficulty level. The app also supports direct messaging between users, with a friends list viewable from the main page.
+The problem domain that is being approached is that of Active Communities, and to connect like minded individuals, in this case bakers who want to learn in a community environment with other similarly motivated individuals. The concept is a community driven application that allows users to connect with other who share an interest for baking and want to bake together. Users can create an event based around what they would like to bake, and can include an image, description, the amount of people they would like to bake with, current attendees, and a difficulty level. The app also supports direct messaging between users, with a friends list viewable from the main page.
 
 In order to encourage engagement in the community, the app will provide additional features that are valuable to the baking community in different contexts of use. Firstly, the ability to save recipes and work through them when later in the kitchen, checking off tasks when they complete them.
 
@@ -174,7 +174,6 @@ These changes can be seen integrated into the **[final design.](https://bake-mat
 * Conducted First Round of Testing
 * Conducted Second Round of Testing
 * Developed Promotional Website
-
 
 
 **Concept Tags**
