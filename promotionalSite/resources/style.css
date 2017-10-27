@@ -4,7 +4,7 @@ Sourced from: https://www.aisle411.com/shops/;
 
 ================================================== */
 
-
+/* This is a mess */
 
 /* ========================= Site Styles ========================= */
 
@@ -14,6 +14,14 @@ div.outer img { position: absolute; right: 0; bottom: 0; }
 
 div.inner { position: relative; height: 24px; }
 div.inner img { position: absolute; left: 0; bottom: 0; }
+
+
+
+#imgsize{
+	height: 120%;
+	width: 120%;
+}
+
 
 html {
 	overflow-x:hidden;
@@ -158,99 +166,6 @@ video {
 				line-height:1.166666666666667em;
 			}
 			
-input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], .ie input[type="range"], .ie9 input[type="range"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
-	height:50px;
-	font-family:Roboto, Arial, sans-serif;
-	color:#b0b0b0;
-	font-size:18px;
-	padding:0px 20px;
-	border:1px solid #e0e0e0;
-	outline:none !important;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-}
-.ie input[type="color"], .ie input[type="date"], .ie input[type="datetime"], .ie input[type="datetime-local"], .ie input[type="email"], .ie input[type="month"], .ie input[type="number"], .ie input[type="password"], .ie input[type="range"], .ie input[type="search"], .ie input[type="tel"], .ie input[type="text"], .ie input[type="time"], .ie input[type="url"], .ie input[type="week"] { line-height:48px; }
-input[type="color"]::-webkit-color-swatch-wrapper { padding:0px; }
-input[type="color"]::-webkit-color-swatch { border:0px; }
-@-moz-document url-prefix() {
-	input[type="color"] {
-		height:34px;
-		padding:2px;
-		border-color:#707070;
-		-moz-border-radius:2px;
-		-webkit-border-radius:2px;
-		border-radius:2px;
-	}
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	input[type="color"] {
-		height:34px;
-		padding:2px;
-		border-color:#707070;
-		-moz-border-radius:2px;
-		-webkit-border-radius:2px;
-		border-radius:2px;
-	}
-	::i-block-chrome, input[type="color"] {
-		height:50px;
-		padding:0px 20px;
-		border-color:#e0e0e0;
-		-moz-border-radius:6px;
-		-webkit-border-radius:6px;
-		border-radius:6px;
-	}
-}
-input[type="date"]::-webkit-inner-spin-button, input[type="datetime-local"]::-webkit-inner-spin-button, input[type="month"]::-webkit-inner-spin-button, input[type="week"]::-webkit-inner-spin-button { display:none; }
-input[type="date"]::-webkit-calendar-picker-indicator, input[type="datetime-local"]::-webkit-calendar-picker-indicator, input[type="month"]::-webkit-calendar-picker-indicator, input[type="week"]::-webkit-calendar-picker-indicator {
-	background:#f0f0f0;
-	margin-left:5px;
-}
-input[type="file"] { line-height:1; }
-input[type="image"] { background:none; }
-input[type="number"]::-webkit-inner-spin-button {
-	display:block;
-	position:relative;
-	width:8px;
-	color:#333;
-	text-align:center;
-	cursor:pointer;
-	margin-left:10px;
-	-webkit-appearance:none;
-}
-input[type="number"]::-webkit-inner-spin-button:before, input[type="number"]::-webkit-inner-spin-button:after {
-	position:absolute;
-	right:0px;
-	font-family:monospace;
-	content:'^';
-}
-input[type="number"]::-webkit-inner-spin-button:before { top:0px; }
-input[type="number"]::-webkit-inner-spin-button:after {
-	bottom:0px;
-	-webkit-transform:rotate(180deg);
-}
-input[type="time"]::-webkit-inner-spin-button { margin:11px 0px 0px 5px; }
-select, textarea {
-	height:auto;
-	padding:11px 16px;
-}
-::i-block-chrome, select {
-	padding:10px 20px;
-	-webkit-appearance:none;
-}
-textarea {
-	padding-left:20px;
-	padding-right:20px;
-}
-input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, .ie input[type="range"]:focus, .ie9 input[type="range"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, select:focus, textarea:focus {
-	color:#606060;
-	border-color:#169ece;
-}
-input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="email"]:disabled, input[type="month"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, .ie input[type="range"]:disabled, .ie9 input[type="range"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="time"]:disabled, input[type="url"]:disabled, input[type="week"]:disabled, select:disabled, textarea:disabled {
-	color:#a9a9a9;
-	background-color:#e9e9e9;
-	border-color:#e9e9e9;
-}
 
 .btn-custom, input[type="button"], input[type="submit"], input[type="reset"], button {
 	font-family:Roboto, Arial, sans-serif;
@@ -748,9 +663,12 @@ button.close:hover {
 	width: 100%;
 	padding-top:6.25em;
 	opacity: 0.5;
-	background-image: url("./header.jpg");
-	background-size: 100% 100%;
-
+	background-image: url("./testerbg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.7;
+	overflow: hidden;
 }
 	#header input[type="color"], #header input[type="date"], #header input[type="datetime"], #header input[type="datetime-local"], #header input[type="email"], #header input[type="month"], #header input[type="number"], #header input[type="password"], #header .ie input[type="range"], #header .ie9 input[type="range"], #header input[type="search"], #header input[type="tel"], #header input[type="text"], #header input[type="time"], #header input[type="url"], #header input[type="week"], #header select, #header textarea, #header input[type="color"]:focus, #header input[type="date"]:focus, #header input[type="datetime"]:focus, #header input[type="datetime-local"]:focus, #header input[type="email"]:focus, #header input[type="month"]:focus, #header input[type="number"]:focus, #header input[type="password"]:focus, #header .ie input[type="range"]:focus, #header .ie9 input[type="range"]:focus, #header input[type="search"]:focus, #header input[type="tel"]:focus, #header input[type="text"]:focus, #header input[type="time"]:focus, #header input[type="url"]:focus, #header input[type="week"]:focus, #header select:focus, #header textarea:focus, #bottom input[type="color"], #bottom input[type="date"], #bottom input[type="datetime"], #bottom input[type="datetime-local"], #bottom input[type="email"], #bottom input[type="month"], #bottom input[type="number"], #bottom input[type="password"], #bottom .ie input[type="range"], #bottom .ie9 input[type="range"], #bottom input[type="search"], #bottom input[type="tel"], #bottom input[type="text"], #bottom input[type="time"], #bottom input[type="url"], #bottom input[type="week"], #bottom select, #bottom textarea, #bottom input[type="color"]:focus, #bottom input[type="date"]:focus, #bottom input[type="datetime"]:focus, #bottom input[type="datetime-local"]:focus, #bottom input[type="email"]:focus, #bottom input[type="month"]:focus, #bottom input[type="number"]:focus, #bottom input[type="password"]:focus, #bottom .ie input[type="range"]:focus, #bottom .ie9 input[type="range"]:focus, #bottom input[type="search"]:focus, #bottom input[type="tel"]:focus, #bottom input[type="text"]:focus, #bottom input[type="time"]:focus, #bottom input[type="url"]:focus, #bottom input[type="week"]:focus, #bottom select:focus, #bottom textarea:focus { border-color:#FFF; }
 	#header input[type="color"]:disabled, #header input[type="date"]:disabled, #header input[type="datetime"]:disabled, #header input[type="datetime-local"]:disabled, #header input[type="email"]:disabled, #header input[type="month"]:disabled, #header input[type="number"]:disabled, #header input[type="password"]:disabled, #header .ie input[type="range"]:disabled, #header .ie9 input[type="range"]:disabled, #header input[type="search"]:disabled, #header input[type="tel"]:disabled, #header input[type="text"]:disabled, #header input[type="time"]:disabled, #header input[type="url"]:disabled, #header input[type="week"]:disabled, #header select:disabled, #header textarea:disabled, #bottom input[type="color"]:disabled, #bottom input[type="date"]:disabled, #bottom input[type="datetime"]:disabled, #bottom input[type="datetime-local"]:disabled, #bottom input[type="email"]:disabled, #bottom input[type="month"]:disabled, #bottom input[type="number"]:disabled, #bottom input[type="password"]:disabled, #bottom .ie input[type="range"]:disabled, #bottom .ie9 input[type="range"]:disabled, #bottom input[type="search"]:disabled, #bottom input[type="tel"]:disabled, #bottom input[type="text"]:disabled, #bottom input[type="time"]:disabled, #bottom input[type="url"]:disabled, #bottom input[type="week"]:disabled, #bottom select:disabled, #bottom textarea:disabled { border-color:#e9e9e9; }
@@ -800,7 +718,7 @@ button.close:hover {
 	}
 	#header .header-content .btn-header:hover {
 		color:#169ece;
-		background-color:#FFF;
+		background-color:#7fdfd1;
 	}
 		#header .header-content .btn-header .fa {
 			position:absolute;
@@ -819,6 +737,8 @@ button.close:hover {
 	opacity: 0.7;
 }
 
+
+
 #bottom{
 	background-image:url() repeat middle center;
 }
@@ -833,10 +753,42 @@ button.close:hover {
 } 
 .ie #features4 .header-slider-wrap { background-image:url(); }
 
+#features3{
+	background-image: url("./bread2.jpg");
+	background-size: cover;
+}
+
+#features4{
+	background-image: url("./tester2.jpg");
+	background-size: cover;
+}
+
+
 #shopsweb{
-	background-image: url();
-	background-size: 100% 100%;
-	opacity: 0.1;
+	position: relative;
+    overflow: hidden;
+    height: 100%;
+	width: 100%;
+}
+
+#shopsweb:before {
+	content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    background-image: url("./bread3.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 #shopsweb.img{
 	opacity:  0.2;
